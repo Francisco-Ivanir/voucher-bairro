@@ -54,27 +54,46 @@ botao.addEventListener("click", async () => {
     const dados = doc.data();
 
 
-    resultado.innerHTML = `
+   if (dados.usado === true || dados.status === "utilizado") {
 
-    <h3>🎟️ Voucher encontrado</h3>
+  resultado.innerHTML = `
 
-    <p>
-    Benefício:
-    ${dados.beneficio}
-    </p>
+  <h3>❌ Voucher já utilizado</h3>
 
-    <p>
-    Status:
-    ${dados.status}
-    </p>
+  <p>
+  Código:
+  ${dados.codigo}
+  </p>
 
-    <p>
-    Código:
-    ${dados.codigo}
-    </p>
+  <p>
+  Este voucher não pode ser utilizado novamente.
+  </p>
 
-    `;
+  `;
 
+} else {
+
+  resultado.innerHTML = `
+
+  <h3>✅ Voucher disponível</h3>
+
+  <p>
+  Benefício:
+  ${dados.beneficio}
+  </p>
+
+  <p>
+  Código:
+  ${dados.codigo}
+  </p>
+
+  <p>
+  Status: ativo
+  </p>
+
+  `;
+
+}
 
   });
 
