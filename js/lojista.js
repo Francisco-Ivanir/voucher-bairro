@@ -90,19 +90,24 @@ botao.addEventListener("click", async () => {
 
         <h3>✅ Voucher válido</h3>
 
-        <p>
-        Benefício:
-        ${dados.beneficio}
-        </p>
+<p>
+Loja:
+${dados.loja}
+</p>
 
-        <p>
-        Código:
-        ${dados.codigo}
-        </p>
+<p>
+Benefício:
+${dados.beneficio}
+</p>
 
-        <p>
-        Status: ativo
-        </p>
+<p>
+Código:
+${dados.codigo}
+</p>
+
+<p>
+Status: ativo
+</p>
 
         <button id="btnBaixar">
         Dar baixa no voucher
