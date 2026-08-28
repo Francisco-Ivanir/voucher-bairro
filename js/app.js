@@ -5,9 +5,9 @@ import {
   collection,
   getDocs,
   query,
-  where
+  where,
+  updateDoc
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
-
 
 const db = getFirestore(app);
 
@@ -96,6 +96,71 @@ botao.addEventListener("click", async () => {
   </button>
 
   `;
+
+
+  const btnUtilizar =
+    document.getElementById("btnUtilizar");
+
+
+  btnUtilizar.addEventListener("click", async () => {
+
+    btnUtilizar.disabled = true;
+
+    btnUtilizar.textContent = "Utilizando...";
+
+
+    try {
+
+      const documento = doc.ref;
+
+      await updateDoc(documento, {
+
+        usado: true,
+        status: "utilizado"
+
+      });
+
+
+      resultado.innerHTML = `
+
+      <h3>✅ Voucher utilizado</h3>
+
+      <p>
+      Benefício:
+      ${dados.beneficio}
+      </p>
+
+      <p>
+      Código:
+      ${dados.codigo}
+      </p>
+
+      <p>
+      Este voucher não pode ser utilizado novamente.
+      </p>
+
+      `;
+
+
+    } catch (erro) {
+
+      console.error("Erro ao utilizar voucher:", erro);
+
+      btnUtilizar.disabled = false;
+
+      btnUtilizar.textContent = "Utilizar Voucher";
+
+      resultado.innerHTML += `
+
+      <p>
+      ❌ Não foi possível utilizar o voucher.
+      </p>
+
+      `;
+
+    }
+
+  });
 
 }
 
