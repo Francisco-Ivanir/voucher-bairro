@@ -91,6 +91,10 @@ botao.addEventListener("click", async () => {
   Status: ativo
   </p>
 
+  <button id="btnUtilizar">
+  Utilizar Voucher
+  </button>
+
   `;
 
 }
