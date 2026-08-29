@@ -87,6 +87,10 @@ botao.addEventListener("click", async () => {
   ${dados.codigo}
   </p>
 
+<p>
+Data de criação: ${dados.dataCriacao}
+</p>
+
   <p>
   Status: ativo
   </p>
