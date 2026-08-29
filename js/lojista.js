@@ -69,7 +69,12 @@ botao.addEventListener("click", async () => {
 
       const dados = documento.data();
 
+resumoLoja.textContent =
+  dados.loja || "---";
 
+resumoLojistaId.textContent =
+  dados.lojistaId || "---";
+      
       if (dados.usado === true || dados.status === "utilizado") {
 
         resultado.innerHTML = `
