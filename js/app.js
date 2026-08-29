@@ -168,7 +168,7 @@ Utilizar Voucher
       `;
 
 
-       } catch (erro) { 
+          } catch (erro) { 
 
       console.error("Erro ao utilizar voucher:", erro); 
 
@@ -189,7 +189,5 @@ Utilizar Voucher
   }); 
 
   }
-
-  });
 
 });
