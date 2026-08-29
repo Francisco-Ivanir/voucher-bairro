@@ -311,7 +311,12 @@ Status: ativo
 
     });
 
+document.getElementById("vouchersAtivos").textContent = ativos;
 
+document.getElementById("vouchersUtilizados").textContent = utilizados;
+
+document.getElementById("vouchersVencidos").textContent = vencidos;
+    
   } catch (erro) {
 
     console.error(
