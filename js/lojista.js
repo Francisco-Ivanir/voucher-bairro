@@ -140,6 +140,10 @@ ${dados.loja}
 </p>
 
 <p>
+ID do lojista: ${dados.lojistaId}
+</p>
+
+<p>
 Cliente:
 ${dados.cliente}
 </p>
