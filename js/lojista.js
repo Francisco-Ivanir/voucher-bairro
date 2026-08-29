@@ -85,7 +85,51 @@ botao.addEventListener("click", async () => {
 
       }
 
+const hoje = new Date();
 
+const partes =
+  dados.dataValidade.split("/");
+
+const validade = new Date(
+  partes[2],
+  partes[1] - 1,
+  partes[0]
+);
+
+const vencido = hoje > validade;
+
+      if (vencido) {
+
+  resultado.innerHTML = `
+
+    <h3>❌ Voucher vencido</h3>
+
+    <p>
+    Loja: ${dados.loja}
+    </p>
+
+    <p>
+    Benefício: ${dados.beneficio}
+    </p>
+
+    <p>
+    Código: ${dados.codigo}
+    </p>
+
+    <p>
+    Válido até: ${dados.dataValidade}
+    </p>
+
+    <p>
+    Este voucher não pode ser utilizado.
+    </p>
+
+  `;
+
+  return;
+
+}
+      
       resultado.innerHTML = `
 
         <h3>✅ Voucher válido</h3>
