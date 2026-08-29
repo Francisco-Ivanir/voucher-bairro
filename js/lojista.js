@@ -70,7 +70,39 @@ let vencidos = 0;
 
     resposta.forEach((documento) => {
 
-      const dados = documento.data();
+     const dados = documento.data();
+
+if (
+  dados.usado === true ||
+  dados.status === "utilizado"
+) {
+
+  utilizados++;
+
+} else {
+
+  const hoje = new Date();
+
+  const partes =
+    dados.dataValidade.split("/");
+
+  const validade = new Date(
+    partes[2],
+    partes[1] - 1,
+    partes[0]
+  );
+
+  if (hoje > validade) {
+
+    vencidos++;
+
+  } else {
+
+    ativos++;
+
+  }
+
+}
 
 resumoLoja.textContent =
   dados.loja || "---";
