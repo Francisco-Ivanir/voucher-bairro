@@ -114,6 +114,10 @@ Data de criação: ${dados.dataCriacao}
 </p>
 
 <p>
+Válido até: ${dados.dataValidade}
+</p>
+
+<p>
 Status: ativo
 </p>
 
