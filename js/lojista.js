@@ -106,8 +106,11 @@ ${dados.beneficio}
 </p>
 
 <p>
-Código:
-${dados.codigo}
+Código: ${dados.codigo}
+</p>
+
+<p>
+Data de criação: ${dados.dataCriacao}
 </p>
 
 <p>
