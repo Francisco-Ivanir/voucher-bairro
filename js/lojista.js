@@ -12,6 +12,11 @@ import {
 
 const db = getFirestore(app);
 
+const resumoLoja =
+  document.getElementById("resumoLoja");
+
+const resumoLojistaId =
+  document.getElementById("resumoLojistaId");
 
 const botao = document.getElementById("btnConsultar");
 
