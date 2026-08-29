@@ -9,24 +9,25 @@ import {
   updateDoc
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
+
 const db = getFirestore(app);
 
 
-const botao = document.getElementById("btnConsultar");
+const botao =
+  document.getElementById("btnConsultar");
 
 
 botao.addEventListener("click", async () => {
 
-
   const codigoDigitado =
-    document.getElementById("codigoVoucher").value;
-
+    document.getElementById("codigoVoucher").value.trim();
 
   const resultado =
     document.getElementById("resultado");
 
 
-  resultado.innerHTML = "Consultando...";
+  resultado.innerHTML =
+    "Consultando...";
 
 
   const consulta = query(
@@ -35,124 +36,119 @@ botao.addEventListener("click", async () => {
   );
 
 
-  const resposta = await getDocs(consulta);
+  const resposta =
+    await getDocs(consulta);
 
 
-  if(resposta.empty){
+  if (resposta.empty) {
 
     resultado.innerHTML =
-    "❌ Voucher não encontrado.";
+      "❌ Voucher não encontrado.";
 
     return;
 
   }
 
 
-  resposta.forEach((doc) => {
+  resposta.forEach((documento) => {
+
+    const dados =
+      documento.data();
 
 
-    const dados = doc.data();
+    // VOUCHER JÁ UTILIZADO
 
-
-   if (dados.usado === true || dados.status === "utilizado") {
-
-  resultado.innerHTML = `
-
-  <h3>❌ Voucher já utilizado</h3>
-
-  <p>
-  Código:
-  ${dados.codigo}
-  </p>
-
-  <p>
-  Este voucher não pode ser utilizado novamente.
-  </p>
-
-  `;
-
-} else {
-
-     const hoje = new Date();
-
-const partes =
-  dados.dataValidade.split("/");
-
-const validade = new Date(
-  partes[2],
-  partes[1] - 1,
-  partes[0]
-);
-
-const vencido = hoje > validade;
-     
-  resultado.innerHTML = `
-
-  <h3>✅ Voucher disponível</h3>
-
-  <p>
-  Benefício:
-  ${dados.beneficio}
-  </p>
-
-  <p>
-  Código:
-  ${dados.codigo}
-  </p>
-
-<p>
-Data de criação: ${dados.dataCriacao}
-</p>
-
-<p>
-Válido até: ${dados.dataValidade}
-</p>
-
-<p>
-Status:
-${vencido ? "❌ Voucher vencido" : "✅ Voucher dentro da validade"}
-</p>
-
- ${vencido ? "" : `
-<button id="btnUtilizar">
-Utilizar Voucher
-</button>
-`}
-
-  `;
-
-if (vencido) {
-  return;
-}
-     
- if (!vencido) {
-
-  const btnUtilizar =
-    document.getElementById("btnUtilizar");
-
-
-  btnUtilizar.addEventListener("click", async () => {
-    
-    btnUtilizar.disabled = true;
-
-    btnUtilizar.textContent = "Utilizando...";
-
-
-    try {
-
-      const documento = doc.ref;
-
-      await updateDoc(documento, {
-
-        usado: true,
-        status: "utilizado"
-
-      });
-
+    if (
+      dados.usado === true ||
+      dados.status === "utilizado"
+    ) {
 
       resultado.innerHTML = `
 
-      <h3>✅ Voucher utilizado</h3>
+        <h3>❌ Voucher já utilizado</h3>
+
+        <p>
+        Código:
+        ${dados.codigo}
+        </p>
+
+        <p>
+        Este voucher não pode ser utilizado novamente.
+        </p>
+
+      `;
+
+      return;
+
+    }
+
+
+    // VERIFICAR VALIDADE
+
+    const hoje =
+      new Date();
+
+
+    const partes =
+      dados.dataValidade.split("/");
+
+
+    const validade =
+      new Date(
+        partes[2],
+        partes[1] - 1,
+        partes[0]
+      );
+
+
+    const vencido =
+      hoje > validade;
+
+
+    // VOUCHER VENCIDO
+
+    if (vencido) {
+
+      resultado.innerHTML = `
+
+        <h3>❌ Voucher vencido</h3>
+
+        <p>
+        Benefício:
+        ${dados.beneficio}
+        </p>
+
+        <p>
+        Código:
+        ${dados.codigo}
+        </p>
+
+        <p>
+        Data de criação:
+        ${dados.dataCriacao}
+        </p>
+
+        <p>
+        Válido até:
+        ${dados.dataValidade}
+        </p>
+
+        <p>
+        Este voucher não pode ser utilizado.
+        </p>
+
+      `;
+
+      return;
+
+    }
+
+
+    // VOUCHER DISPONÍVEL
+
+    resultado.innerHTML = `
+
+      <h3>✅ Voucher disponível</h3>
 
       <p>
       Benefício:
@@ -165,32 +161,104 @@ if (vencido) {
       </p>
 
       <p>
-      Este voucher não pode ser utilizado novamente.
+      Data de criação:
+      ${dados.dataCriacao}
       </p>
 
-      `;
+      <p>
+      Válido até:
+      ${dados.dataValidade}
+      </p>
+
+      <p>
+      Status:
+      ✅ Voucher dentro da validade
+      </p>
+
+      <button id="btnUtilizar">
+      Utilizar Voucher
+      </button>
+
+    `;
 
 
-          } catch (erro) { 
+    const btnUtilizar =
+      document.getElementById("btnUtilizar");
 
-      console.error("Erro ao utilizar voucher:", erro); 
 
-      btnUtilizar.disabled = false; 
+    btnUtilizar.addEventListener(
+      "click",
+      async () => {
 
-      btnUtilizar.textContent = "Utilizar Voucher"; 
+        btnUtilizar.disabled =
+          true;
 
-      resultado.innerHTML += ` 
 
-      <p> 
-      ❌ Não foi possível utilizar o voucher. 
-      </p> 
+        btnUtilizar.textContent =
+          "Utilizando...";
 
-      `; 
 
-    } 
+        try {
 
-  }); 
+          await updateDoc(
+            documento.ref,
+            {
+              usado: true,
+              status: "utilizado"
+            }
+          );
 
-  }
+
+          resultado.innerHTML = `
+
+            <h3>✅ Voucher utilizado</h3>
+
+            <p>
+            Benefício:
+            ${dados.beneficio}
+            </p>
+
+            <p>
+            Código:
+            ${dados.codigo}
+            </p>
+
+            <p>
+            Este voucher não pode ser utilizado novamente.
+            </p>
+
+          `;
+
+
+        } catch (erro) {
+
+          console.error(
+            "Erro ao utilizar voucher:",
+            erro
+          );
+
+
+          btnUtilizar.disabled =
+            false;
+
+
+          btnUtilizar.textContent =
+            "Utilizar Voucher";
+
+
+          resultado.innerHTML += `
+
+            <p>
+            ❌ Não foi possível utilizar o voucher.
+            </p>
+
+          `;
+
+        }
+
+      }
+    );
+
+  });
 
 });
