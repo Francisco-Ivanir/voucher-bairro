@@ -129,6 +129,27 @@ const vencido = hoje > validade;
   return;
 
 }
+
+      if (!dados.lojistaId) {
+
+  resultado.innerHTML = `
+
+    <h3>⚠️ Voucher sem lojista identificado</h3>
+
+    <p>
+    Código: ${dados.codigo}
+    </p>
+
+    <p>
+    Este voucher não pode ser utilizado até que
+    seja associado a um lojista.
+    </p>
+
+  `;
+
+  return;
+
+}
       
       resultado.innerHTML = `
 
