@@ -190,6 +190,44 @@ botao.addEventListener("click", async () => {
       "click",
       async () => {
 
+        const agora = new Date();
+
+const partesValidade =
+  dados.dataValidade.split("/");
+
+const dataValidadeAtual =
+  new Date(
+    partesValidade[2],
+    partesValidade[1] - 1,
+    partesValidade[0]
+  );
+
+if (agora > dataValidadeAtual) {
+
+  resultado.innerHTML = `
+
+    <h3>❌ Voucher vencido</h3>
+
+    <p>
+    Código:
+    ${dados.codigo}
+    </p>
+
+    <p>
+    Válido até:
+    ${dados.dataValidade}
+    </p>
+
+    <p>
+    Este voucher não pode ser utilizado.
+    </p>
+
+  `;
+
+  return;
+
+}
+        
         btnUtilizar.disabled =
           true;
 
