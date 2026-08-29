@@ -168,25 +168,25 @@ Utilizar Voucher
       `;
 
 
-    } catch (erro) {
+       } catch (erro) { 
 
-      console.error("Erro ao utilizar voucher:", erro);
+      console.error("Erro ao utilizar voucher:", erro); 
 
-      btnUtilizar.disabled = false;
+      btnUtilizar.disabled = false; 
 
-      btnUtilizar.textContent = "Utilizar Voucher";
+      btnUtilizar.textContent = "Utilizar Voucher"; 
 
-      resultado.innerHTML += `
+      resultado.innerHTML += ` 
 
-      <p>
-      ❌ Não foi possível utilizar o voucher.
-      </p>
+      <p> 
+      ❌ Não foi possível utilizar o voucher. 
+      </p> 
 
-      `;
+      `; 
 
-    }
+    } 
 
-  });
+  }); 
 
   }
 
