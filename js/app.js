@@ -73,6 +73,19 @@ botao.addEventListener("click", async () => {
 
 } else {
 
+     const hoje = new Date();
+
+const partes =
+  dados.dataValidade.split("/");
+
+const validade = new Date(
+  partes[2],
+  partes[1] - 1,
+  partes[0]
+);
+
+const vencido = hoje > validade;
+     
   resultado.innerHTML = `
 
   <h3>✅ Voucher disponível</h3>
@@ -95,9 +108,10 @@ Data de criação: ${dados.dataCriacao}
 Válido até: ${dados.dataValidade}
 </p>
 
-  <p>
-  Status: ativo
-  </p>
+<p>
+Status:
+${vencido ? "❌ Voucher vencido" : "✅ Voucher dentro da validade"}
+</p>
 
   <button id="btnUtilizar">
   Utilizar Voucher
