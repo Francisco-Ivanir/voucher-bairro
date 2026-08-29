@@ -121,7 +121,10 @@ Utilizar Voucher
 
   `;
 
-
+if (vencido) {
+  return;
+}
+     
  if (!vencido) {
 
   const btnUtilizar =
