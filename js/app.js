@@ -113,19 +113,23 @@ Status:
 ${vencido ? "❌ Voucher vencido" : "✅ Voucher dentro da validade"}
 </p>
 
-  <button id="btnUtilizar">
-  Utilizar Voucher
-  </button>
+ ${vencido ? "" : `
+<button id="btnUtilizar">
+Utilizar Voucher
+</button>
+`}
 
   `;
 
+
+ if (!vencido) {
 
   const btnUtilizar =
     document.getElementById("btnUtilizar");
 
 
   btnUtilizar.addEventListener("click", async () => {
-
+    
     btnUtilizar.disabled = true;
 
     btnUtilizar.textContent = "Utilizando...";
@@ -190,3 +194,5 @@ ${vencido ? "❌ Voucher vencido" : "✅ Voucher dentro da validade"}
 
 
 });
+
+}
