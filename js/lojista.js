@@ -96,6 +96,11 @@ ${dados.loja}
 </p>
 
 <p>
+Cliente:
+${dados.cliente}
+</p>
+
+<p>
 Benefício:
 ${dados.beneficio}
 </p>
