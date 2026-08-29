@@ -54,7 +54,10 @@ botao.addEventListener("click", async () => {
 
     const resposta = await getDocs(consulta);
 
-
+let ativos = 0;
+let utilizados = 0;
+let vencidos = 0;
+    
     if (resposta.empty) {
 
       resultado.innerHTML =
