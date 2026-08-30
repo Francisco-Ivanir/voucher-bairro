@@ -65,6 +65,48 @@ const respostaLoja =
 let ativos = 0;
 let utilizados = 0;
 let vencidos = 0;
+
+    let ativosLoja = 0;
+let utilizadosLoja = 0;
+let vencidosLoja = 0;
+
+respostaLoja.forEach((documentoLoja) => {
+
+  const dadosLoja =
+    documentoLoja.data();
+
+  if (
+    dadosLoja.usado === true ||
+    dadosLoja.status === "utilizado"
+  ) {
+
+    utilizadosLoja++;
+
+  } else {
+
+    const partesLoja =
+      dadosLoja.dataValidade.split("/");
+
+    const validadeLoja =
+      new Date(
+        partesLoja[2],
+        partesLoja[1] - 1,
+        partesLoja[0]
+      );
+
+    if (new Date() > validadeLoja) {
+
+      vencidosLoja++;
+
+    } else {
+
+      ativosLoja++;
+
+    }
+
+  }
+
+});
     
     if (resposta.empty) {
 
