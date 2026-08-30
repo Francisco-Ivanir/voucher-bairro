@@ -65,6 +65,10 @@ const respostaLoja =
 let ativos = 0;
 let utilizados = 0;
 let vencidos = 0;
+
+    let ativosLoja = 0;
+let utilizadosLoja = 0;
+let vencidosLoja = 0;
     
     if (resposta.empty) {
 
