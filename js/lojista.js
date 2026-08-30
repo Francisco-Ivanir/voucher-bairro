@@ -107,6 +107,15 @@ respostaLoja.forEach((documentoLoja) => {
   }
 
 });
+
+    document.getElementById("vouchersAtivos").textContent =
+  ativosLoja;
+
+document.getElementById("vouchersUtilizados").textContent =
+  utilizadosLoja;
+
+document.getElementById("vouchersVencidos").textContent =
+  vencidosLoja;
     
     if (resposta.empty) {
 
