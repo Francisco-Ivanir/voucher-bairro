@@ -61,6 +61,11 @@ botao.addEventListener("click", async () => {
 
 const respostaLoja =
   await getDocs(consultaLoja);
+
+    console.log(
+  "Quantidade de vouchers da loja:",
+  respostaLoja.size
+);
     
 let ativos = 0;
 let utilizados = 0;
