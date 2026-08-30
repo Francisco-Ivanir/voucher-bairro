@@ -61,6 +61,47 @@ botao.addEventListener("click", async () => {
 
 const respostaLoja =
   await getDocs(consultaLoja);
+
+    respostaLoja.forEach((documentoLoja) => {
+
+  const dadosLoja =
+    documentoLoja.data();
+
+  if (
+    dadosLoja.usado === true ||
+    dadosLoja.status === "utilizado"
+  ) {
+
+    utilizadosLoja++;
+
+  } else {
+
+    const hojeLoja =
+      new Date();
+
+    const partesLoja =
+      dadosLoja.dataValidade.split("/");
+
+    const validadeLoja =
+      new Date(
+        partesLoja[2],
+        partesLoja[1] - 1,
+        partesLoja[0]
+      );
+
+    if (hojeLoja > validadeLoja) {
+
+      vencidosLoja++;
+
+    } else {
+
+      ativosLoja++;
+
+    }
+
+  }
+
+});
     
 let ativos = 0;
 let utilizados = 0;
