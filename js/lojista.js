@@ -75,11 +75,54 @@ let vencidos = 0;
 let utilizadosLoja = 0;
 let vencidosLoja = 0;
 
+    const listaVouchers =
+  document.getElementById("listaVouchers");
+
+listaVouchers.innerHTML = "";
+    
 respostaLoja.forEach((documentoLoja) => {
 
   const dadosLoja =
     documentoLoja.data();
 
+  listaVouchers.innerHTML += `
+
+  <div>
+
+    <hr>
+
+    <p>
+    <strong>Código:</strong>
+    ${dadosLoja.codigo}
+    </p>
+
+    <p>
+    <strong>Cliente:</strong>
+    ${dadosLoja.cliente}
+    </p>
+
+    <p>
+    <strong>Benefício:</strong>
+    ${dadosLoja.beneficio}
+    </p>
+
+    <p>
+    <strong>Válido até:</strong>
+    ${dadosLoja.dataValidade}
+    </p>
+
+    <p>
+    <strong>Status:</strong>
+    ${dadosLoja.usado === true ||
+      dadosLoja.status === "utilizado"
+      ? "Utilizado"
+      : "Ativo"}
+    </p>
+
+  </div>
+
+`;
+  
   console.log(
   "Voucher da loja:",
   dadosLoja.codigo
