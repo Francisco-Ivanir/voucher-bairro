@@ -80,6 +80,11 @@ respostaLoja.forEach((documentoLoja) => {
   const dadosLoja =
     documentoLoja.data();
 
+  console.log(
+  "Voucher da loja:",
+  dadosLoja.codigo
+);
+  
   if (
     dadosLoja.usado === true ||
     dadosLoja.status === "utilizado"
