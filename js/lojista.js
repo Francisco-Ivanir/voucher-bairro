@@ -91,6 +91,16 @@ respostaLoja.forEach((documentoLoja) => {
 
     <hr>
 
+<p>
+<strong>Loja:</strong>
+${dadosLoja.loja}
+</p>
+
+<p>
+<strong>ID do lojista:</strong>
+${dadosLoja.lojistaId}
+</p>
+
     <p>
     <strong>Código:</strong>
     ${dadosLoja.codigo}
