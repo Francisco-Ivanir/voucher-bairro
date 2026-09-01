@@ -79,6 +79,9 @@ let vencidosLoja = 0;
   document.getElementById("listaVouchers");
 
 listaVouchers.innerHTML = "";
+
+    const filtroStatus =
+  document.getElementById("filtroStatus").value;
     
 respostaLoja.forEach((documentoLoja) => {
 
