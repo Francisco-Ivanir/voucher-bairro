@@ -111,6 +111,11 @@ ${dadosLoja.lojistaId}
     ${dadosLoja.cliente}
     </p>
 
+<p>
+<strong>Criado em:</strong>
+${dadosLoja.dataCriacao}
+</p>
+
     <p>
     <strong>Benefício:</strong>
     ${dadosLoja.beneficio}
