@@ -122,11 +122,11 @@ ${dadosLoja.lojistaId}
     </p>
 
     <p>
-    <strong>Status:</strong>
-    ${dadosLoja.usado === true ||
-      dadosLoja.status === "utilizado"
-      ? "Utilizado"
-      : "Ativo"}
+   <strong>Status:</strong>
+${dadosLoja.usado === true ||
+  dadosLoja.status === "utilizado"
+  ? "🔵 UTILIZADO"
+  : "🟢 ATIVO"}
     </p>
 
   </div>
