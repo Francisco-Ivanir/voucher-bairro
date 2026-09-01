@@ -122,11 +122,22 @@ ${dadosLoja.lojistaId}
     </p>
 
     <p>
-   <strong>Status:</strong>
-${dadosLoja.usado === true ||
+ <strong>Status:</strong>
+${
+  dadosLoja.usado === true ||
   dadosLoja.status === "utilizado"
-  ? "🔵 UTILIZADO"
-  : "🟢 ATIVO"}
+    ? "🔵 UTILIZADO"
+    : (
+        new Date() >
+        new Date(
+          dadosLoja.dataValidade.split("/")[2],
+          dadosLoja.dataValidade.split("/")[1] - 1,
+          dadosLoja.dataValidade.split("/")[0]
+        )
+      )
+      ? "🔴 VENCIDO"
+      : "🟢 ATIVO"
+}
     </p>
 
   </div>
