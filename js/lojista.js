@@ -82,6 +82,15 @@ listaVouchers.innerHTML = "";
 
     const filtroStatus =
   document.getElementById("filtroStatus");
+
+    filtroStatus.addEventListener("change", () => {
+
+  console.log(
+    "Filtro selecionado:",
+    filtroStatus.value
+  );
+
+});
     
 respostaLoja.forEach((documentoLoja) => {
 
