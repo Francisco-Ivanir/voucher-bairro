@@ -12,6 +12,8 @@ import {
 
 const db = getFirestore(app);
 
+const lojistaIdAtual = "LANC001";
+
 const resumoLoja =
   document.getElementById("resumoLoja");
 
