@@ -54,9 +54,11 @@ botao.addEventListener("click", async () => {
 
     const resposta = await getDocs(consulta);
 
-    const consultaLoja = query(
+   const lojistaIdAtual = "LANC001";
+
+const consultaLoja = query(
   collection(db, "vouchers"),
-  where("lojistaId", "==", "LANC001")
+  where("lojistaId", "==", lojistaIdAtual)
 );
 
 const respostaLoja =
