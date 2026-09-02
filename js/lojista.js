@@ -83,6 +83,11 @@ listaVouchers.innerHTML = "";
     const filtroStatus =
   document.getElementById("filtroStatus");
 
+    console.log(
+  "Filtro encontrado:",
+  filtroStatus
+);
+    
     filtroStatus.addEventListener("change", () => {
 
   console.log(
