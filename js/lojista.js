@@ -401,8 +401,11 @@ if (
 
 }
 
-resumoLoja.textContent =
+const nomeLojaAtual =
   dados.loja || "---";
+
+resumoLoja.textContent =
+  nomeLojaAtual;
 
 resumoLojistaId.textContent =
   dados.lojistaId || "---";
