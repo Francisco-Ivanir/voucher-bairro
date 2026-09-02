@@ -406,6 +406,11 @@ resumoLoja.textContent =
 
 resumoLojistaId.textContent =
   dados.lojistaId || "---";
+
+      console.log(
+  "Lojista atual:",
+  lojistaIdAtual
+);
       
       if (dados.usado === true || dados.status === "utilizado") {
 
