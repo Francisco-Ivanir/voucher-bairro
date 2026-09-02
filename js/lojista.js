@@ -12,7 +12,13 @@ import {
 
 const db = getFirestore(app);
 
-const lojistaIdAtual = "LANC001";
+function obterLojistaId() {
+
+  return "LANC001";
+
+}
+
+const lojistaIdAtual = obterLojistaId();
 
 const resumoLoja =
   document.getElementById("resumoLoja");
