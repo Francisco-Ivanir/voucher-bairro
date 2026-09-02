@@ -93,10 +93,111 @@ console.log(
 
 filtroStatusSelect.addEventListener("change", () => {
 
-  console.log(
-    "Filtro selecionado:",
-    filtroStatusSelect.value
-  );
+  const novoFiltro =
+    filtroStatusSelect.value;
+
+  listaVouchers.innerHTML = "";
+
+  respostaLoja.forEach((documentoLoja) => {
+
+    const dadosLoja =
+      documentoLoja.data();
+
+    let statusVoucher = "ativo";
+
+    if (
+      dadosLoja.usado === true ||
+      dadosLoja.status === "utilizado"
+    ) {
+
+      statusVoucher = "utilizado";
+
+    } else {
+
+      const partesFiltro =
+        dadosLoja.dataValidade.split("/");
+
+      const validadeFiltro =
+        new Date(
+          partesFiltro[2],
+          partesFiltro[1] - 1,
+          partesFiltro[0]
+        );
+
+      if (new Date() > validadeFiltro) {
+
+        statusVoucher = "vencido";
+
+      }
+
+    }
+
+    if (
+      novoFiltro !== "todos" &&
+      novoFiltro !== statusVoucher
+    ) {
+
+      return;
+
+    }
+
+    listaVouchers.innerHTML += `
+
+      <div>
+
+        <hr>
+
+        <p>
+        <strong>Loja:</strong>
+        ${dadosLoja.loja}
+        </p>
+
+        <p>
+        <strong>ID do lojista:</strong>
+        ${dadosLoja.lojistaId}
+        </p>
+
+        <p>
+        <strong>Código:</strong>
+        ${dadosLoja.codigo}
+        </p>
+
+        <p>
+        <strong>Cliente:</strong>
+        ${dadosLoja.cliente}
+        </p>
+
+        <p>
+        <strong>Criado em:</strong>
+        ${dadosLoja.dataCriacao}
+        </p>
+
+        <p>
+        <strong>Benefício:</strong>
+        ${dadosLoja.beneficio}
+        </p>
+
+        <p>
+        <strong>Válido até:</strong>
+        ${dadosLoja.dataValidade}
+        </p>
+
+        <p>
+        <strong>Status:</strong>
+        ${
+          statusVoucher === "utilizado"
+            ? "🔵 UTILIZADO"
+            : statusVoucher === "vencido"
+              ? "🔴 VENCIDO"
+              : "🟢 ATIVO"
+        }
+        </p>
+
+      </div>
+
+    `;
+
+  });
 
 });
     
