@@ -408,7 +408,7 @@ resumoLoja.textContent =
   nomeLojaAtual;
 
 resumoLojistaId.textContent =
-  dados.lojistaId || "---";
+  lojistaIdAtual;
 
       console.log(
   "Lojista atual:",
