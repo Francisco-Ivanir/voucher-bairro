@@ -80,19 +80,22 @@ let vencidosLoja = 0;
 
 listaVouchers.innerHTML = "";
 
-    const filtroStatus =
+   const filtroStatusSelect =
   document.getElementById("filtroStatus");
 
-    console.log(
+const filtroStatus =
+  filtroStatusSelect.value;
+
+console.log(
   "Filtro encontrado:",
   filtroStatus
 );
-    
-    filtroStatus.addEventListener("change", () => {
+
+filtroStatusSelect.addEventListener("change", () => {
 
   console.log(
     "Filtro selecionado:",
-    filtroStatus.value
+    filtroStatusSelect.value
   );
 
 });
