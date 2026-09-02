@@ -116,6 +116,13 @@ if (
   }
 
 }
+
+  if (
+  filtroStatus !== "todos" &&
+  filtroStatus !== statusVoucher
+) {
+  return;
+}
   
   listaVouchers.innerHTML += `
 
