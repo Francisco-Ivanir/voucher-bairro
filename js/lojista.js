@@ -88,6 +88,35 @@ respostaLoja.forEach((documentoLoja) => {
   const dadosLoja =
     documentoLoja.data();
 
+  let statusVoucher = "ativo";
+
+if (
+  dadosLoja.usado === true ||
+  dadosLoja.status === "utilizado"
+) {
+
+  statusVoucher = "utilizado";
+
+} else {
+
+  const partesFiltro =
+    dadosLoja.dataValidade.split("/");
+
+  const validadeFiltro =
+    new Date(
+      partesFiltro[2],
+      partesFiltro[1] - 1,
+      partesFiltro[0]
+    );
+
+  if (new Date() > validadeFiltro) {
+
+    statusVoucher = "vencido";
+
+  }
+
+}
+  
   listaVouchers.innerHTML += `
 
   <div>
