@@ -28,6 +28,15 @@ function obterLojistaId() {
 
 let proximoNumeroLojista = 2;
 
+function gerarProximoLojistaId() {
+
+  const numero =
+    String(proximoNumeroLojista).padStart(3, "0");
+
+  return "LANC" + numero;
+
+}
+
 const lojistaIdAtual =
   obterLojistaId();
 
