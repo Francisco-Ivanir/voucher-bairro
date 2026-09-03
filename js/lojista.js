@@ -28,6 +28,39 @@ function obterLojistaId() {
 
 let proximoNumeroLojista = 2;
 
+async function buscarIdsLojistas() {
+
+  const consulta =
+    await getDocs(
+      collection(db, "vouchers")
+    );
+
+  const ids = [];
+
+  consulta.forEach((documento) => {
+
+    const dados =
+      documento.data();
+
+    if (dados.lojistaId) {
+
+      if (!ids.includes(dados.lojistaId)) {
+        ids.push(dados.lojistaId);
+      }
+
+    }
+
+  });
+
+  console.log(
+    "IDs de lojistas encontrados:",
+    ids
+  );
+
+  return ids;
+
+}
+
 function gerarProximoLojistaId() {
 
   const numero =
