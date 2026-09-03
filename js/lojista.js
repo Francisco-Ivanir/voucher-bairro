@@ -26,6 +26,8 @@ function obterLojistaId() {
 
 }
 
+let proximoNumeroLojista = 2;
+
 const lojistaIdAtual =
   obterLojistaId();
 
