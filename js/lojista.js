@@ -14,7 +14,10 @@ const db = getFirestore(app);
 
 function obterLojistaId() {
 
-  return "LANC001";
+  const lojistaId =
+    "LANC001";
+
+  return lojistaId;
 
 }
 
