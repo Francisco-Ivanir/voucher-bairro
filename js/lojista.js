@@ -52,12 +52,30 @@ async function buscarIdsLojistas() {
 
   });
 
-  console.log(
-    "IDs de lojistas encontrados:",
-    ids
-  );
+ console.log(
+  "IDs de lojistas encontrados:",
+  ids
+);
 
-  return ids;
+let maiorNumero = 0;
+
+ids.forEach((id) => {
+
+  const numero =
+    parseInt(id.replace("LANC", ""), 10);
+
+  if (!isNaN(numero) && numero > maiorNumero) {
+    maiorNumero = numero;
+  }
+
+});
+
+console.log(
+  "Maior número de lojista:",
+  maiorNumero
+);
+
+return ids;
 
 }
 
