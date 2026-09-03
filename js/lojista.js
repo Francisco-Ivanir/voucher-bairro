@@ -37,6 +37,11 @@ function gerarProximoLojistaId() {
 
 }
 
+console.log(
+  "Próximo ID disponível:",
+  gerarProximoLojistaId()
+);
+
 const lojistaIdAtual =
   obterLojistaId();
 
