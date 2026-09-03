@@ -121,8 +121,6 @@ console.log(
 const lojistaIdAtual =
   obterLojistaId();
 
-buscarIdsLojistas();
-
 const resumoLoja =
   document.getElementById("resumoLoja");
 
