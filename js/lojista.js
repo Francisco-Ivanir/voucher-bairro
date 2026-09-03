@@ -21,7 +21,8 @@ function obterLojistaId() {
 
 }
 
-const lojistaIdAtual = obterLojistaId();
+const lojistaIdAtual =
+  obterLojistaId();
 
 const resumoLoja =
   document.getElementById("resumoLoja");
