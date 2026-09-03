@@ -109,15 +109,17 @@ function gerarProximoLojistaId() {
   const numero =
     String(proximoNumeroLojista).padStart(3, "0");
 
-  const novoId =
-    "LANC" + numero;
+ const novoId =
+  "LANC" + numero;
 
-  console.log(
-    "ID gerado:",
-    novoId
-  );
+proximoNumeroLojista++;
 
-  return novoId;
+console.log(
+  "ID gerado:",
+  novoId
+);
+
+return novoId;
 
 }
 
