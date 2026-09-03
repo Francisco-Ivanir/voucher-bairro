@@ -17,6 +17,11 @@ function obterLojistaId() {
   const lojistaId =
     "LANC001";
 
+  console.log(
+    "ID do lojista definido:",
+    lojistaId
+  );
+
   return lojistaId;
 
 }
