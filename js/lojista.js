@@ -28,6 +28,31 @@ function obterLojistaId() {
 
 let proximoNumeroLojista = 2;
 
+buscarIdsLojistas().then((ids) => {
+
+  let maiorNumero = 0;
+
+  ids.forEach((id) => {
+
+    const numero =
+      parseInt(id.replace("LANC", ""), 10);
+
+    if (!isNaN(numero) && numero > maiorNumero) {
+      maiorNumero = numero;
+    }
+
+  });
+
+  proximoNumeroLojista =
+    maiorNumero + 1;
+
+  console.log(
+    "Próximo número calculado:",
+    proximoNumeroLojista
+  );
+
+});
+
 async function buscarIdsLojistas() {
 
   const consulta =
