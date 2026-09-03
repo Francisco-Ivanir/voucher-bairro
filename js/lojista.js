@@ -123,9 +123,16 @@ return novoId;
 
 }
 
+const primeiroId =
+  gerarProximoLojistaId();
+
+const segundoId =
+  gerarProximoLojistaId();
+
 console.log(
-  "Próximo ID disponível:",
-  gerarProximoLojistaId()
+  "Teste de sequência:",
+  primeiroId,
+  segundoId
 );
 
 const lojistaIdAtual =
