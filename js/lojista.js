@@ -69,6 +69,19 @@ console.log(
   "Quantidade de lojistas cadastrados:",
   consultaLojistas.size
 );
+
+  consultaLojistas.forEach((documento) => {
+
+  const dados =
+    documento.data();
+
+  console.log(
+    "Lojista cadastrado:",
+    dados.lojistaId,
+    dados.nome
+  );
+
+});
   
   const ids = [];
 
