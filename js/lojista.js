@@ -123,6 +123,11 @@ console.log(
   maiorNumero
 );
 
+console.log(
+  "IDs retornados pela função:",
+  ids
+);
+
 return ids;
 
 }
