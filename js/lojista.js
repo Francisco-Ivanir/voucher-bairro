@@ -60,6 +60,16 @@ async function buscarIdsLojistas() {
       collection(db, "vouchers")
     );
 
+  const consultaLojistas =
+  await getDocs(
+    collection(db, "lojistas")
+  );
+
+console.log(
+  "Quantidade de lojistas cadastrados:",
+  consultaLojistas.size
+);
+  
   const ids = [];
 
   consulta.forEach((documento) => {
