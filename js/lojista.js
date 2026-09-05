@@ -105,24 +105,6 @@ consultaLojistas.forEach((documento) => {
   ids
 );
 
-let maiorNumero = 0;
-
-ids.forEach((id) => {
-
-  const numero =
-    parseInt(id.replace("LANC", ""), 10);
-
-  if (!isNaN(numero) && numero > maiorNumero) {
-    maiorNumero = numero;
-  }
-
-});
-
-console.log(
-  "Maior número de lojista:",
-  maiorNumero
-);
-
 console.log(
   "IDs retornados pela função:",
   ids
