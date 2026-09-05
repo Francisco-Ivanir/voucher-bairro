@@ -755,7 +755,3 @@ Status: ativo
 
 });
 
-console.log(
-  "Teste manual:",
-  gerarProximoLojistaId()
-);
