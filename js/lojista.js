@@ -83,23 +83,23 @@ console.log(
 
 });
   
-  const ids = [];
+ const ids = [];
 
-  consulta.forEach((documento) => {
+consultaLojistas.forEach((documento) => {
 
-    const dados =
-      documento.data();
+  const dados =
+    documento.data();
 
-    if (dados.lojistaId) {
+  if (dados.lojistaId) {
 
-      if (!ids.includes(dados.lojistaId)) {
-        ids.push(dados.lojistaId);
-      }
-
+    if (!ids.includes(dados.lojistaId)) {
+      ids.push(dados.lojistaId);
     }
 
-  });
+  }
 
+});
+  
  console.log(
   "IDs de lojistas encontrados:",
   ids
