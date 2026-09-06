@@ -157,6 +157,31 @@ const lojistaIdAtual =
 
 let dadosLojistaAtual = null;
 
+buscarLojistaPorId(lojistaIdAtual).then((resposta) => {
+
+  if (resposta.empty) {
+
+    console.log(
+      "Lojista atual não encontrado."
+    );
+
+    return;
+
+  }
+
+  const documento =
+    resposta.docs[0];
+
+  dadosLojistaAtual =
+    documento.data();
+
+  console.log(
+    "Dados do lojista atual:",
+    dadosLojistaAtual
+  );
+
+});
+
 const resumoLoja =
   document.getElementById("resumoLoja");
 
