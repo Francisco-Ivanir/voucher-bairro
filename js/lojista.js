@@ -155,6 +155,8 @@ return novoId;
 const lojistaIdAtual =
   obterLojistaId();
 
+let dadosLojistaAtual = null;
+
 const resumoLoja =
   document.getElementById("resumoLoja");
 
