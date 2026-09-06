@@ -152,6 +152,20 @@ return novoId;
 
 }
 
+function obterProximoLojistaId() {
+
+  const novoId =
+    gerarProximoLojistaId();
+
+  console.log(
+    "Próximo ID de lojista:",
+    novoId
+  );
+
+  return novoId;
+
+}
+
 const lojistaIdAtual =
   obterLojistaId();
 
