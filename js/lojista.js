@@ -189,6 +189,20 @@ buscarLojistaPorId(lojistaIdAtual).then((resposta) => {
   dadosLojistaAtual =
     documento.data();
 
+  if (dadosLojistaAtual.ativo === true) {
+
+  console.log(
+    "Lojista atual está ativo."
+  );
+
+} else {
+
+  console.log(
+    "⚠️ Lojista atual está inativo."
+  );
+
+}
+  
   console.log(
     "Dados do lojista atual:",
     dadosLojistaAtual
