@@ -155,6 +155,15 @@ return novoId;
 const lojistaIdAtual =
   obterLojistaId();
 
+buscarLojistaPorId(lojistaIdAtual).then((resposta) => {
+
+  console.log(
+    "Teste de busca do lojista:",
+    resposta.size
+  );
+
+});
+
 const resumoLoja =
   document.getElementById("resumoLoja");
 
