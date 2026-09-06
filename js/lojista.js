@@ -166,6 +166,9 @@ function obterProximoLojistaId() {
 
 }
 
+obterProximoLojistaId();
+obterProximoLojistaId();
+
 const lojistaIdAtual =
   obterLojistaId();
 
