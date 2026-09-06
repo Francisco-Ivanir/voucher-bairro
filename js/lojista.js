@@ -570,7 +570,9 @@ if (
 }
 
 const nomeLojaAtual =
-  dados.loja || "---";
+  dadosLojistaAtual
+    ? dadosLojistaAtual.nome
+    : "---";
 
 resumoLoja.textContent =
   nomeLojaAtual;
