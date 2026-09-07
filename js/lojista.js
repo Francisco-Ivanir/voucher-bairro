@@ -202,6 +202,11 @@ buscarLojistaPorId(lojistaIdAtual).then((resposta) => {
   );
 
 }
+
+  console.log(
+  "Teste autorização:",
+  lojistaEstaAtivo()
+);
   
   console.log(
     "Dados do lojista atual:",
@@ -239,11 +244,6 @@ function lojistaEstaAtivo() {
   return false;
 
 }
-
-console.log(
-  "Teste autorização:",
-  lojistaEstaAtivo()
-);
 
 const resumoLoja =
   document.getElementById("resumoLoja");
