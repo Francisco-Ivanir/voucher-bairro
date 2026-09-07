@@ -267,7 +267,15 @@ botao.addEventListener("click", async () => {
 
   }
 
+if (!lojistaEstaAtivo()) {
 
+  resultado.innerHTML =
+    "❌ Este lojista não está autorizado a operar.";
+
+  return;
+
+}
+  
   resultado.innerHTML =
     "Consultando voucher...";
 
