@@ -240,6 +240,11 @@ function lojistaEstaAtivo() {
 
 }
 
+console.log(
+  "Teste autorização:",
+  lojistaEstaAtivo()
+);
+
 const resumoLoja =
   document.getElementById("resumoLoja");
 
