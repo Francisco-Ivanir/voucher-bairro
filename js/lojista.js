@@ -210,6 +210,36 @@ buscarLojistaPorId(lojistaIdAtual).then((resposta) => {
 
 });
 
+function lojistaEstaAtivo() {
+
+  if (!dadosLojistaAtual) {
+
+    console.log(
+      "Lojista ainda não carregado."
+    );
+
+    return false;
+
+  }
+
+  if (dadosLojistaAtual.ativo === true) {
+
+    console.log(
+      "Lojista autorizado a operar."
+    );
+
+    return true;
+
+  }
+
+  console.log(
+    "⚠️ Lojista não está autorizado a operar."
+  );
+
+  return false;
+
+}
+
 const resumoLoja =
   document.getElementById("resumoLoja");
 
