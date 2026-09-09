@@ -210,6 +210,12 @@ buscarLojistaPorId(lojistaIdAtual).then((resposta) => {
 
 });
 
+function obterDadosLojistaAtual() {
+
+  return dadosLojistaAtual;
+
+}
+
 function lojistaEstaAtivo() {
 
   if (!dadosLojistaAtual) {
