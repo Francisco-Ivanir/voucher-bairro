@@ -12,10 +12,13 @@ import {
 
 const db = getFirestore(app);
 
+let lojistaIdConfigurado = "LANC001";
+
+
 function obterLojistaId() {
 
   const lojistaIdAtual =
-    "LANC001";
+    lojistaIdConfigurado;
 
   console.log(
     "ID do lojista definido:",
