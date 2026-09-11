@@ -210,6 +210,38 @@ buscarLojistaPorId(lojistaIdAtual).then((resposta) => {
 
 });
 
+function lojistaPodeOperar(dadosLojista) {
+
+  if (!dadosLojista) {
+
+    console.log(
+      "Lojista não encontrado."
+    );
+
+    return false;
+
+  }
+
+
+  if (dadosLojista.ativo !== true) {
+
+    console.log(
+      "Lojista está bloqueado ou inativo."
+    );
+
+    return false;
+
+  }
+
+
+  console.log(
+    "Lojista autorizado a operar."
+  );
+
+  return true;
+
+}
+
 function obterDadosLojistaAtual() {
 
   return dadosLojistaAtual;
