@@ -296,9 +296,16 @@ if (!lojistaEstaAtivo()) {
 
     const resposta = await getDocs(consulta);
 
-const consultaLoja = query(
-  collection(db, "vouchers"),
-  where("lojistaId", "==", lojistaIdAtual)
+const dadosLojista =
+  obterDadosLojistaAtual();
+
+const lojistaIdConsulta =
+  dadosLojista.lojistaId;
+
+
+const consultaLoja = query( 
+  collection(db, "vouchers"), 
+  where("lojistaId", "==", lojistaIdConsulta) 
 );
 
 const respostaLoja =
