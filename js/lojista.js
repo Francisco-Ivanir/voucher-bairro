@@ -189,17 +189,17 @@ buscarLojistaPorId(lojistaIdAtual).then((resposta) => {
   dadosLojistaAtual =
     documento.data();
   
-  if (dadosLojistaAtual.ativo === true) {
+const autorizado =
+  lojistaPodeOperar(dadosLojistaAtual);
+
+
+if (!autorizado) {
 
   console.log(
-    "Lojista atual está ativo."
+    "Lojista sem autorização."
   );
 
-} else {
-
-  console.log(
-    "⚠️ Lojista atual está inativo."
-  );
+  return;
 
 }
   
