@@ -659,12 +659,12 @@ resumoLoja.textContent =
 resumoLojistaId.textContent =
   lojistaIdAtual;
 
-    const dadosLojistaAtual =
+   const lojistaAtual =
   obterDadosLojistaAtual();
 
 console.log(
   "Lojista atual:",
-  dadosLojistaAtual.lojistaId
+  lojistaAtual.lojistaId
 );
       
       if (dados.usado === true || dados.status === "utilizado") {
