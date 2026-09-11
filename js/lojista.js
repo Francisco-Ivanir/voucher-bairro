@@ -14,15 +14,15 @@ const db = getFirestore(app);
 
 function obterLojistaId() {
 
-  const lojistaId =
+  const lojistaIdAtual =
     "LANC001";
 
   console.log(
     "ID do lojista definido:",
-    lojistaId
+    lojistaIdAtual
   );
 
-  return lojistaId;
+  return lojistaIdAtual;
 
 }
 
