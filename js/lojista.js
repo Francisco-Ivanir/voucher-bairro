@@ -216,6 +216,11 @@ function obterDadosLojistaAtual() {
 
 }
 
+console.log(
+  "Teste dados do lojista:",
+  obterDadosLojistaAtual()
+);
+
 function lojistaEstaAtivo() {
 
   if (!dadosLojistaAtual) {
