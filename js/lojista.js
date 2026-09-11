@@ -189,6 +189,11 @@ buscarLojistaPorId(lojistaIdAtual).then((resposta) => {
   dadosLojistaAtual =
     documento.data();
 
+  console.log(
+  "Teste dados do lojista:",
+  obterDadosLojistaAtual()
+);
+  
   if (dadosLojistaAtual.ativo === true) {
 
   console.log(
@@ -215,11 +220,6 @@ function obterDadosLojistaAtual() {
   return dadosLojistaAtual;
 
 }
-
-console.log(
-  "Teste dados do lojista:",
-  obterDadosLojistaAtual()
-);
 
 function lojistaEstaAtivo() {
 
