@@ -230,7 +230,19 @@ function lojistaPodeOperar(dadosLojista) {
 
   }
 
+if (
+  dadosLojista.lojistaId !==
+  configuracaoLojista.lojistaId
+) {
 
+  console.log(
+    "⚠️ ID do lojista não corresponde à configuração."
+  );
+
+  return false;
+
+}
+  
   if (dadosLojista.ativo !== true) {
 
     console.log(
