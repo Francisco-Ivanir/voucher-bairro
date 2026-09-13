@@ -187,6 +187,8 @@ buscarLojistaPorId(lojistaIdAtual).then((resposta) => {
       "Lojista atual não encontrado."
     );
 
+    dadosLojistaAtual = null;
+    
     return;
 
   }
