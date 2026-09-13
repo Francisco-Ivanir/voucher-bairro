@@ -212,11 +212,17 @@ if (!autorizado) {
   return;
 
 }
-  
-  console.log(
-    "Dados do lojista atual:",
-    dadosLojistaAtual
-  );
+
+
+console.log(
+  "Lojista autorizado e dados carregados."
+);
+
+
+console.log(
+  "Dados do lojista atual:",
+  dadosLojistaAtual
+);
 
 });
 
