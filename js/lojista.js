@@ -261,11 +261,6 @@ if (
 
   }
 
-
-  console.log(
-    "Lojista autorizado a operar."
-  );
-
   return true;
 
 }
