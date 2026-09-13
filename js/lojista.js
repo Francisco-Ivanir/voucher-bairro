@@ -349,13 +349,48 @@ if (!lojistaEstaAtivo()) {
     );
 
 
-    const resposta = await getDocs(consulta);
+   const resposta = await getDocs(consulta);
+
+
+if (resposta.empty) {
+
+  resultado.innerHTML =
+    "❌ Voucher não encontrado.";
+
+  return;
+
+}
+
+
+const documentoVoucher =
+  resposta.docs[0];
+
+const dadosVoucher =
+  documentoVoucher.data();
+
 
 const dadosLojista =
   obterDadosLojistaAtual();
 
 const lojistaIdConsulta =
   dadosLojista.lojistaId;
+
+
+if (
+  dadosVoucher.lojistaId !==
+  lojistaIdConsulta
+) {
+
+  console.log(
+    "⚠️ Voucher pertence a outro lojista."
+  );
+
+  resultado.innerHTML =
+    "❌ Este voucher não pertence a esta loja.";
+
+  return;
+
+}
 
 
 const consultaLoja = query( 
