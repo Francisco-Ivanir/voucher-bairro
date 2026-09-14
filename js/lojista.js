@@ -85,15 +85,10 @@ buscarIdsLojistas().then((ids) => {
 
 async function buscarIdsLojistas() {
 
-  const consulta =
-    await getDocs(
-      collection(db, "vouchers")
-    );
-
   const consultaLojistas =
-  await getDocs(
-    collection(db, "lojistas")
-  );
+    await getDocs(
+      collection(db, "lojistas")
+    );
 
 console.log(
   "Quantidade de lojistas cadastrados:",
