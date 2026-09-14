@@ -12,6 +12,8 @@ import {
 
 const db = getFirestore(app);
 
+let filtroStatusConfigurado = false;
+
 const configuracaoLojista = {
 
   lojistaId:
