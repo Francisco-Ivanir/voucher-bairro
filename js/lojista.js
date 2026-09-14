@@ -430,8 +430,12 @@ console.log(
   filtroStatus
 );
 
-filtroStatusSelect.addEventListener("change", () => {
+if (!filtroStatusConfigurado) {
 
+  filtroStatusConfigurado = true;
+
+  filtroStatusSelect.addEventListener("change", () => {
+    
   const novoFiltro =
     filtroStatusSelect.value;
 
@@ -539,6 +543,8 @@ filtroStatusSelect.addEventListener("change", () => {
   });
 
 });
+
+  }
     
 respostaLoja.forEach((documentoLoja) => {
 
