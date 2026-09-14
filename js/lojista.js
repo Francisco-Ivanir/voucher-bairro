@@ -275,9 +275,9 @@ function lojistaEstaAtivo() {
 
   if (!dadosLojistaAtual) {
 
-    console.log(
-      "Lojista ainda não carregado."
-    );
+   console.log(
+  "⏳ Aguardando dados do lojista."
+);
 
     return false;
 
