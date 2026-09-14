@@ -15,7 +15,10 @@ const db = getFirestore(app);
 const configuracaoLojista = {
 
   lojistaId:
-    "LANC001"
+    "LANC001",
+
+  tipo:
+    "lojista"
 
 };
 
