@@ -901,14 +901,41 @@ Status: ativo
           "Processando...";
 
 
-        try {
+       try {
 
-          await updateDoc(documento.ref, {
+  const dadosLojista =
+    obterDadosLojistaAtual();
 
-            usado: true,
-            status: "utilizado"
 
-          });
+  if (
+    !dadosLojista ||
+    dados.lojistaId !==
+    dadosLojista.lojistaId
+  ) {
+
+    console.log(
+      "⚠️ Bloqueio de segurança: voucher não pertence ao lojista atual."
+    );
+
+    btnBaixar.disabled = false;
+
+    btnBaixar.textContent =
+      "Dar baixa no voucher";
+
+    resultado.innerHTML =
+      "❌ Este voucher não pertence a esta loja.";
+
+    return;
+
+  }
+
+
+  await updateDoc(documento.ref, {
+
+    usado: true,
+    status: "utilizado"
+
+  });
 
 
           resultado.innerHTML = `
