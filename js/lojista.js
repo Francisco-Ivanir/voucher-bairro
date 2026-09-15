@@ -607,24 +607,16 @@ ${dadosLoja.dataCriacao}
     ${dadosLoja.dataValidade}
     </p>
 
-    <p>
- <strong>Status:</strong>
+  <p>
+<strong>Status:</strong>
 ${
-  dadosLoja.usado === true ||
-  dadosLoja.status === "utilizado"
+  statusVoucher === "utilizado"
     ? "🔵 UTILIZADO"
-    : (
-        new Date() >
-        new Date(
-          dadosLoja.dataValidade.split("/")[2],
-          dadosLoja.dataValidade.split("/")[1] - 1,
-          dadosLoja.dataValidade.split("/")[0]
-        )
-      )
+    : statusVoucher === "vencido"
       ? "🔴 VENCIDO"
       : "🟢 ATIVO"
 }
-    </p>
+</p>
 
   </div>
 
