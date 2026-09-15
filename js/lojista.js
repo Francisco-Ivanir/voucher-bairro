@@ -18,6 +18,63 @@ import {
 
 const db = getFirestore(app);
 
+const btnLogin =
+  document.getElementById("btnLogin");
+
+btnLogin.addEventListener("click", async () => {
+
+  const email =
+    document.getElementById("emailLojista").value.trim();
+
+  const senha =
+    document.getElementById("senhaLojista").value;
+
+  const mensagem =
+    document.getElementById("mensagemLogin");
+
+  if (!email || !senha) {
+
+    mensagem.textContent =
+      "Digite o e-mail e a senha.";
+
+    return;
+
+  }
+
+  mensagem.textContent =
+    "Entrando...";
+
+  try {
+
+    const resultadoLogin =
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        senha
+      );
+
+    console.log(
+      "Lojista autenticado:",
+      resultadoLogin.user.email
+    );
+
+    mensagem.textContent =
+      "✅ Login realizado com sucesso.";
+
+  } catch (erro) {
+
+    console.error(
+      "Erro no login:",
+      erro
+    );
+
+    mensagem.textContent =
+      "❌ E-mail ou senha incorretos.";
+
+  }
+
+});
+
 let filtroStatusConfigurado = false;
 
 const configuracaoLojista = {
