@@ -1,4 +1,7 @@
-import { app } from "../config/firebase-config.js";
+import {
+  app,
+  auth
+} from "../config/firebase-config.js";
 
 import {
   getFirestore,
@@ -9,6 +12,9 @@ import {
   updateDoc
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
+import {
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
 const db = getFirestore(app);
 
