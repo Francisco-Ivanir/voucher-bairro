@@ -271,6 +271,37 @@ function obterDadosLojistaAtual() {
 
 }
 
+function obterStatusVoucher(dadosVoucher) {
+
+  if (
+    dadosVoucher.usado === true ||
+    dadosVoucher.status === "utilizado"
+  ) {
+
+    return "utilizado";
+
+  }
+
+  const partes =
+    dadosVoucher.dataValidade.split("/");
+
+  const validade =
+    new Date(
+      partes[2],
+      partes[1] - 1,
+      partes[0]
+    );
+
+  if (new Date() > validade) {
+
+    return "vencido";
+
+  }
+
+  return "ativo";
+
+}
+
 function lojistaEstaAtivo() {
 
   if (!dadosLojistaAtual) {
