@@ -1,5 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
+import {
+  getAuth
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAdy7i6Lk2q8sFnDOL0nij9iABVJSsrqiw",
   authDomain: "voucher-bairro.firebaseapp.com",
@@ -11,4 +15,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export { app };
+const auth = getAuth(app);
+
+export {
+  app,
+  auth
+};
