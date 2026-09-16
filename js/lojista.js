@@ -19,6 +19,37 @@ import {
 
 const db = getFirestore(app);
 
+onAuthStateChanged(auth, (usuario) => {
+
+  const areaLogin =
+    document.getElementById("areaLogin");
+
+  const painelLojista =
+    document.getElementById("painelLojista");
+
+  if (usuario) {
+
+    console.log(
+      "Estado de autenticação: autenticado",
+      usuario.email
+    );
+
+    areaLogin.style.display = "none";
+    painelLojista.style.display = "block";
+
+  } else {
+
+    console.log(
+      "Estado de autenticação: não autenticado"
+    );
+
+    areaLogin.style.display = "block";
+    painelLojista.style.display = "none";
+
+  }
+
+});
+
 const btnLogin =
   document.getElementById("btnLogin");
 
