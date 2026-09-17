@@ -55,6 +55,14 @@ onAuthStateChanged(auth, (usuario) => {
       documento.data()
     );
 
+    dadosLojistaAtual =
+  documento.data();
+
+console.log(
+  "Lojista atual definido pelo e-mail:",
+  dadosLojistaAtual.lojistaId
+);
+    
   });
     
     areaLogin.style.display = "none";
