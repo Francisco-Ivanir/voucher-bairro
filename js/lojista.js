@@ -319,57 +319,11 @@ function obterProximoLojistaId() {
 
 }
 
-const lojistaIdAtual =
-  obterLojistaId();
-
 let dadosLojistaAtual = null;
 
-buscarLojistaPorId(lojistaIdAtual).then((resposta) => {
-
-  if (resposta.empty) {
-
-    console.log(
-      "Lojista atual não encontrado."
-    );
-
-    dadosLojistaAtual = null;
-    
-    return;
-
-  }
-
-  const documento =
-    resposta.docs[0];
-
-  dadosLojistaAtual =
-    documento.data();
-  
-const autorizado =
-  lojistaPodeOperar(dadosLojistaAtual);
-
-
-if (!autorizado) {
-
-  console.log(
-    "Lojista sem autorização."
-  );
-
-  return;
-
-}
-
-
 console.log(
-  "Lojista autorizado e dados carregados."
+  "Aguardando identificação do lojista pelo e-mail autenticado."
 );
-
-
-console.log(
-  "Dados do lojista atual:",
-  dadosLojistaAtual
-);
-
-});
 
 function lojistaPodeOperar(dadosLojista) {
 
