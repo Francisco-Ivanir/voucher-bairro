@@ -823,7 +823,9 @@ resumoLoja.textContent =
   nomeLojaAtual;
 
 resumoLojistaId.textContent =
-  lojistaIdAtual;
+  dadosLojistaAtual
+    ? dadosLojistaAtual.lojistaId
+    : "---";
 
    const lojistaAtual =
   obterDadosLojistaAtual();
