@@ -143,7 +143,7 @@ let filtroStatusConfigurado = false;
 const configuracaoLojista = {
 
   lojistaId:
-    "LANC001",
+    null,
 
   tipo:
     "lojista"
