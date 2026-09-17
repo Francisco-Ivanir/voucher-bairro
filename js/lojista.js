@@ -153,6 +153,25 @@ async function buscarLojistaPorId(lojistaId) {
 
 }
 
+async function buscarLojistaPorEmail(email) {
+
+  const consulta = query(
+    collection(db, "lojistas"),
+    where("email", "==", email)
+  );
+
+  const resposta =
+    await getDocs(consulta);
+
+  console.log(
+    "Lojistas encontrados pelo e-mail:",
+    resposta.size
+  );
+
+  return resposta;
+
+}
+
 let proximoNumeroLojista = 2;
 
 buscarIdsLojistas().then((ids) => {
