@@ -34,6 +34,29 @@ onAuthStateChanged(auth, (usuario) => {
       usuario.email
     );
 
+    buscarLojistaPorEmail(usuario.email)
+  .then((resposta) => {
+
+    if (resposta.empty) {
+
+      console.log(
+        "Nenhum lojista encontrado para este e-mail."
+      );
+
+      return;
+
+    }
+
+    const documento =
+      resposta.docs[0];
+
+    console.log(
+      "Lojista encontrado pelo e-mail:",
+      documento.data()
+    );
+
+  });
+    
     areaLogin.style.display = "none";
     painelLojista.style.display = "block";
 
