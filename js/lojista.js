@@ -51,9 +51,9 @@ onAuthStateChanged(auth, (usuario) => {
       resposta.docs[0];
 
     console.log(
-      "Lojista encontrado pelo e-mail:",
-      documento.data()
-    );
+  "Lojista encontrado pelo UID:",
+  documento.data()
+);
 
     dadosLojistaAtual =
   documento.data();
