@@ -82,16 +82,18 @@ console.log(
     areaLogin.style.display = "none";
     painelLojista.style.display = "block";
 
-  } else {
+ } else {
 
-    console.log(
-      "Estado de autenticação: não autenticado"
-    );
+  console.log(
+    "Estado de autenticação: não autenticado"
+  );
 
-    areaLogin.style.display = "block";
-    painelLojista.style.display = "none";
+  dadosLojistaAtual = null;
 
-  }
+  areaLogin.style.display = "block";
+  painelLojista.style.display = "none";
+
+}
 
 });
 
