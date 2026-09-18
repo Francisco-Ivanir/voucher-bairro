@@ -80,8 +80,8 @@ onAuthStateChanged(auth, (usuario) => {
 
       });
 
-    areaLogin.style.display = "none";
-    painelLojista.style.display = "block";
+   areaLogin.style.display = "none";
+painelLojista.style.display = "none";
 
   } else {
 
