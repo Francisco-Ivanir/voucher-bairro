@@ -58,6 +58,19 @@ onAuthStateChanged(auth, (usuario) => {
     dadosLojistaAtual =
   documento.data();
 
+if (
+  dadosLojistaAtual.uid !== usuario.uid
+) {
+
+  console.log(
+    "UID do lojista não corresponde ao usuário autenticado."
+  );
+
+  dadosLojistaAtual = null;
+
+  return;
+}
+
 console.log(
   "Lojista atual definido pelo UID:",
   dadosLojistaAtual.lojistaId
