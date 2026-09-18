@@ -35,65 +35,66 @@ onAuthStateChanged(auth, (usuario) => {
       usuario.email
     );
 
-   buscarLojistaPorUid(usuario.uid)
-  .then((resposta) => {
+    buscarLojistaPorUid(usuario.uid)
+      .then((resposta) => {
 
-    if (resposta.empty) {
+        if (resposta.empty) {
 
-      console.log(
-        "Nenhum lojista encontrado para este e-mail."
-      );
+          console.log(
+            "Nenhum lojista encontrado para este UID."
+          );
 
-      return;
+          dadosLojistaAtual = null;
 
-    }
+          return;
+        }
 
-    const documento =
-      resposta.docs[0];
+        const documento =
+          resposta.docs[0];
 
-    console.log(
-  "Lojista encontrado pelo UID:",
-  documento.data()
-);
+        console.log(
+          "Lojista encontrado pelo UID:",
+          documento.data()
+        );
 
-    dadosLojistaAtual =
-  documento.data();
+        dadosLojistaAtual =
+          documento.data();
 
-if (
-  dadosLojistaAtual.uid !== usuario.uid
-) {
+        if (
+          dadosLojistaAtual.uid !== usuario.uid
+        ) {
 
-  console.log(
-    "UID do lojista não corresponde ao usuário autenticado."
-  );
+          console.log(
+            "UID do lojista não corresponde ao usuário autenticado."
+          );
 
-  dadosLojistaAtual = null;
+          dadosLojistaAtual = null;
 
-  return;
-}
+          return;
+        }
 
-console.log(
-  "Lojista atual definido pelo UID:",
-  dadosLojistaAtual.lojistaId
-);
-    
-  });
-    
+        console.log(
+          "Lojista atual definido pelo UID:",
+          dadosLojistaAtual.lojistaId
+        );
+
+      });
+
     areaLogin.style.display = "none";
     painelLojista.style.display = "block";
 
- } else {
+  } else {
 
-  console.log(
-    "Estado de autenticação: não autenticado"
-  );
+    console.log(
+      "Estado de autenticação: não autenticado"
+    );
 
-  dadosLojistaAtual = null;
+    dadosLojistaAtual = null;
 
-  areaLogin.style.display = "block";
-  painelLojista.style.display = "none";
+    areaLogin.style.display = "block";
+    painelLojista.style.display = "none";
 
-}
+  }
 
 });
 
