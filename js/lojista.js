@@ -34,7 +34,7 @@ onAuthStateChanged(auth, (usuario) => {
       usuario.email
     );
 
-    buscarLojistaPorEmail(usuario.email)
+   buscarLojistaPorUid(usuario.uid)
   .then((resposta) => {
 
     if (resposta.empty) {
