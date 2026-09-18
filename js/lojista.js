@@ -14,7 +14,8 @@ import {
 
 import {
   signInWithEmailAndPassword,
-  onAuthStateChanged
+  onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
 const db = getFirestore(app);
@@ -146,6 +147,30 @@ btnLogin.addEventListener("click", async () => {
 
     mensagem.textContent =
       "❌ E-mail ou senha incorretos.";
+
+  }
+
+});
+
+const btnLogout =
+  document.getElementById("btnLogout");
+
+btnLogout.addEventListener("click", async () => {
+
+  try {
+
+    await signOut(auth);
+
+    console.log(
+      "Logout realizado com sucesso."
+    );
+
+  } catch (erro) {
+
+    console.error(
+      "Erro ao realizar logout:",
+      erro
+    );
 
   }
 
