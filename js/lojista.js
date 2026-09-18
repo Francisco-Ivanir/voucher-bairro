@@ -169,23 +169,21 @@ async function buscarLojistaPorId(lojistaId) {
 
 }
 
-async function buscarLojistaPorEmail(email) {
-
+async function buscarLojistaPorUid(uid) {
   const consulta = query(
     collection(db, "lojistas"),
-    where("email", "==", email)
+    where("uid", "==", uid)
   );
 
   const resposta =
     await getDocs(consulta);
 
   console.log(
-    "Lojistas encontrados pelo e-mail:",
+    "Lojistas encontrados pelo UID:",
     resposta.size
   );
 
   return resposta;
-
 }
 
 let dadosLojistaAtual = null;
