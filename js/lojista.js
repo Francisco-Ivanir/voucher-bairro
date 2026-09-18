@@ -46,6 +46,8 @@ onAuthStateChanged(auth, (usuario) => {
 
           dadosLojistaAtual = null;
 
+          painelLojista.style.display = "none";
+          
           return;
         }
 
