@@ -59,7 +59,7 @@ onAuthStateChanged(auth, (usuario) => {
   documento.data();
 
 console.log(
-  "Lojista atual definido pelo e-mail:",
+  "Lojista atual definido pelo UID:",
   dadosLojistaAtual.lojistaId
 );
     
