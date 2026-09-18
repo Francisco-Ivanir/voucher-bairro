@@ -78,6 +78,8 @@ onAuthStateChanged(auth, (usuario) => {
           dadosLojistaAtual.lojistaId
         );
 
+        painelLojista.style.display = "block";
+        
       });
 
    areaLogin.style.display = "none";
