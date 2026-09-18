@@ -80,6 +80,19 @@ onAuthStateChanged(auth, (usuario) => {
           dadosLojistaAtual.lojistaId
         );
 
+        const identificacaoLojista =
+  document.getElementById("identificacaoLojista");
+
+if (identificacaoLojista) {
+
+  identificacaoLojista.textContent =
+    "Loja: " +
+    dadosLojistaAtual.nome +
+    " | ID: " +
+    dadosLojistaAtual.lojistaId;
+
+}
+        
         painelLojista.style.display = "block";
         
       });
