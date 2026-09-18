@@ -150,21 +150,6 @@ const configuracaoLojista = {
 
 };
 
-
-function obterLojistaId() {
-
-  const lojistaIdAtual =
-  configuracaoLojista.lojistaId;
-
-  console.log(
-    "ID do lojista definido:",
-    lojistaIdAtual
-  );
-
-  return lojistaIdAtual;
-
-}
-
 async function buscarLojistaPorId(lojistaId) {
 
   const consulta = query(
