@@ -181,6 +181,16 @@ btnLogout.addEventListener("click", async () => {
 
     await signOut(auth);
 
+    const identificacaoLojista =
+  document.getElementById("identificacaoLojista");
+
+if (identificacaoLojista) {
+
+  identificacaoLojista.textContent =
+    "Loja: ---";
+
+}
+    
     console.log(
       "Logout realizado com sucesso."
     );
