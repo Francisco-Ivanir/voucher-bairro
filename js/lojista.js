@@ -86,6 +86,16 @@ onAuthStateChanged(auth, (usuario) => {
     "Lojista está inativo e não pode operar."
   );
 
+          const mensagemLogin =
+  document.getElementById("mensagemLogin");
+
+if (mensagemLogin) {
+
+  mensagemLogin.textContent =
+    "Acesso bloqueado. Entre em contato com o administrador.";
+
+}
+          
   dadosLojistaAtual = null;
 
   painelLojista.style.display = "none";
