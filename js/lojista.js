@@ -80,6 +80,19 @@ onAuthStateChanged(auth, (usuario) => {
           dadosLojistaAtual.lojistaId
         );
 
+        if (dadosLojistaAtual.ativo !== true) {
+
+  console.log(
+    "Lojista está inativo e não pode operar."
+  );
+
+  dadosLojistaAtual = null;
+
+  painelLojista.style.display = "none";
+
+  return;
+}
+        
         const identificacaoLojista =
   document.getElementById("identificacaoLojista");
 
