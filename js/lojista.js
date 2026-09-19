@@ -281,16 +281,6 @@ if (identificacaoLojista) {
 
 let filtroStatusConfigurado = false;
 
-const configuracaoLojista = {
-
-  lojistaId:
-    null,
-
-  tipo:
-    "lojista"
-
-};
-
 async function buscarLojistaPorId(lojistaId) {
 
   const consulta = query(
