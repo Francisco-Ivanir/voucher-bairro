@@ -414,6 +414,13 @@ function lojistaEstaAtivo() {
   if (dadosLojistaAtual.ativo === true) {
 
     console.log(
+  "Loja autorizada:",
+  dadosLojistaAtual.nome,
+  "| ID:",
+  dadosLojistaAtual.lojistaId
+);
+    
+    console.log(
       "Lojista autorizado a operar."
     );
 
