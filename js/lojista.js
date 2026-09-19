@@ -9,7 +9,9 @@ import {
   getDocs,
   query,
   where,
-  updateDoc
+  updateDoc,
+  doc,
+serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 import {
