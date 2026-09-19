@@ -101,6 +101,14 @@ updateDoc(
     "Último acesso do lojista atualizado."
   );
 
+})
+.catch((erro) => {
+
+  console.error(
+    "Erro ao atualizar último acesso:",
+    erro
+  );
+
 });
         
         if (dadosLojistaAtual.ativo !== true) {
