@@ -281,25 +281,6 @@ if (identificacaoLojista) {
 
 let filtroStatusConfigurado = false;
 
-async function buscarLojistaPorId(lojistaId) {
-
-  const consulta = query(
-    collection(db, "lojistas"),
-    where("lojistaId", "==", lojistaId)
-  );
-
-  const resposta =
-    await getDocs(consulta);
-
-  console.log(
-    "Lojistas encontrados pelo ID:",
-    resposta.size
-  );
-
-  return resposta;
-
-}
-
 async function buscarLojistaPorUid(uid) {
   const consulta = query(
     collection(db, "lojistas"),
