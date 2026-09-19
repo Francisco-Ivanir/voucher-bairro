@@ -112,6 +112,15 @@ if (identificacaoLojista) {
 
   return;
 }
+
+        const mensagemLogin =
+  document.getElementById("mensagemLogin");
+
+if (mensagemLogin) {
+
+  mensagemLogin.textContent = "";
+
+}
         
         const identificacaoLojista =
   document.getElementById("identificacaoLojista");
