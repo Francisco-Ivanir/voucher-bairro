@@ -82,6 +82,24 @@ onAuthStateChanged(auth, (usuario) => {
           dadosLojistaAtual.lojistaId
         );
 
+        const referenciaLojista =
+  doc(
+    db,
+    "lojistas",
+    documento.id
+  );
+
+await updateDoc(
+  referenciaLojista,
+  {
+    ultimoAcesso: serverTimestamp()
+  }
+);
+
+console.log(
+  "Último acesso do lojista atualizado."
+);
+        
         if (dadosLojistaAtual.ativo !== true) {
 
   console.log(
