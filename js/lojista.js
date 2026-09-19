@@ -832,12 +832,9 @@ resumoLojistaId.textContent =
     ? dadosLojistaAtual.lojistaId
     : "---";
 
-   const lojistaAtual =
-  obterDadosLojistaAtual();
-
-console.log(
+ console.log(
   "Lojista atual:",
-  lojistaAtual.lojistaId
+  dadosLojistaAtual.lojistaId
 );
       
       if (dados.usado === true || dados.status === "utilizado") {
