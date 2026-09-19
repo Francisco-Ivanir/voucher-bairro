@@ -95,6 +95,16 @@ if (mensagemLogin) {
     "Acesso bloqueado. Entre em contato com o administrador.";
 
 }
+
+          const identificacaoLojista =
+  document.getElementById("identificacaoLojista");
+
+if (identificacaoLojista) {
+
+  identificacaoLojista.textContent =
+    "Loja: ---";
+
+}
           
   dadosLojistaAtual = null;
 
