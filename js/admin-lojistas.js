@@ -161,6 +161,88 @@ btnSalvarLojista.addEventListener("click", async () => {
     mensagem.textContent =
       "✅ Usuário criado no Firebase Authentication.";
 
+    const uid =
+  resultado.user.uid;
+
+
+const lojistasExistentes =
+  await getDocs(
+    collection(db, "lojistas")
+  );
+
+
+const prefixo =
+  nome
+    .replace(/[^a-zA-ZÀ-ÿ]/g, "")
+    .substring(0, 4)
+    .toUpperCase();
+
+
+let maiorNumero = 0;
+
+
+lojistasExistentes.forEach((documento) => {
+
+  const dados =
+    documento.data();
+
+  if (
+    dados.lojistaId &&
+    dados.lojistaId.startsWith(prefixo)
+  ) {
+
+    const numero =
+      parseInt(
+        dados.lojistaId
+          .replace(prefixo, ""),
+        10
+      );
+
+    if (
+      !isNaN(numero) &&
+      numero > maiorNumero
+    ) {
+
+      maiorNumero = numero;
+
+    }
+
+  }
+
+});
+
+
+const proximoNumero =
+  String(maiorNumero + 1)
+    .padStart(3, "0");
+
+
+const lojistaId =
+  prefixo + proximoNumero;
+
+
+await addDoc(
+  collection(db, "lojistas"),
+  {
+    nome: nome,
+    email: email,
+    uid: uid,
+    lojistaId: lojistaId,
+    ativo: true
+  }
+);
+
+
+console.log(
+  "Lojista criado no Firestore:",
+  lojistaId
+);
+
+
+mensagem.textContent =
+  "✅ Lojista criado com sucesso. ID: " +
+  lojistaId;
+    
   } catch (erro) {
 
     console.error(
