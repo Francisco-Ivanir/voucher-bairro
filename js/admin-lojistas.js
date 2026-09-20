@@ -242,6 +242,8 @@ console.log(
 mensagem.textContent =
   "✅ Lojista criado com sucesso. ID: " +
   lojistaId;
+
+    carregarLojistas();
     
   } catch (erro) {
 
