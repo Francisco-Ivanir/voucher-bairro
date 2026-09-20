@@ -98,3 +98,79 @@ btnNovoLojista.addEventListener("click", () => {
 
 });
 
+const btnSalvarLojista =
+  document.getElementById("btnSalvarLojista");
+
+
+btnSalvarLojista.addEventListener("click", async () => {
+
+  const nome =
+    document
+      .getElementById("nomeNovoLojista")
+      .value
+      .trim();
+
+  const email =
+    document
+      .getElementById("emailNovoLojista")
+      .value
+      .trim();
+
+  const senha =
+    document
+      .getElementById("senhaNovoLojista")
+      .value;
+
+  const mensagem =
+    document.getElementById(
+      "mensagemCadastroLojista"
+    );
+
+
+  if (!nome || !email || !senha) {
+
+    mensagem.textContent =
+      "Preencha nome, e-mail e senha.";
+
+    return;
+
+  }
+
+
+  mensagem.textContent =
+    "Criando lojista...";
+
+
+  try {
+
+    const resultado =
+      await createUserWithEmailAndPassword(
+        authCadastro,
+        email,
+        senha
+      );
+
+
+    console.log(
+      "Novo usuário criado no Firebase Authentication:",
+      resultado.user.uid
+    );
+
+
+    mensagem.textContent =
+      "✅ Usuário criado no Firebase Authentication.";
+
+  } catch (erro) {
+
+    console.error(
+      "Erro ao criar usuário:",
+      erro
+    );
+
+    mensagem.textContent =
+      "❌ Não foi possível criar o usuário.";
+
+  }
+
+});
+
