@@ -9,6 +9,9 @@ import {
   getDocs
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
+import {
+  createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
 const db =
   getFirestore(app);
