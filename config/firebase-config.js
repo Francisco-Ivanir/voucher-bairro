@@ -19,5 +19,6 @@ const auth = getAuth(app);
 
 export {
   app,
-  auth
+  auth,
+  firebaseConfig
 };
