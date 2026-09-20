@@ -1,5 +1,6 @@
 import {
-  app
+  app,
+  firebaseConfig
 } from "../config/firebase-config.js";
 
 import {
