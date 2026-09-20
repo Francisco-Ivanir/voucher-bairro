@@ -63,3 +63,17 @@ async function carregarLojistas() {
 
 
 carregarLojistas();
+
+const btnNovoLojista =
+  document.getElementById("btnNovoLojista");
+
+const areaCadastroLojista =
+  document.getElementById("areaCadastroLojista");
+
+
+btnNovoLojista.addEventListener("click", () => {
+
+  areaCadastroLojista.style.display = "block";
+
+});
+
