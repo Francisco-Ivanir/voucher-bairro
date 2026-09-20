@@ -6,7 +6,8 @@ import {
 import {
   getFirestore,
   collection,
-  getDocs
+  getDocs,
+  addDoc
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 import {
