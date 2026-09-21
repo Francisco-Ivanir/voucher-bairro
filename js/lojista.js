@@ -497,13 +497,10 @@ const dadosVoucher =
   documentoVoucher.data();
 
 
-const dadosLojista =
-  obterDadosLojistaAtual();
-
 const lojistaIdConsulta =
-  dadosLojista.lojistaId;
+  dadosLojistaAtual.lojistaId;
 
-
+    
 if (
   dadosVoucher.lojistaId !==
   lojistaIdConsulta
