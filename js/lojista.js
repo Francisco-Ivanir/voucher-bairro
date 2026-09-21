@@ -40,18 +40,30 @@ onAuthStateChanged(auth, (usuario) => {
     buscarLojistaPorUid(usuario.uid)
       .then((resposta) => {
 
-        if (resposta.empty) {
+       if (resposta.empty) {
 
-          console.log(
-            "Nenhum lojista encontrado para este UID."
-          );
+  console.log(
+    "Nenhum lojista encontrado para este UID."
+  );
 
-          dadosLojistaAtual = null;
+  dadosLojistaAtual = null;
 
-          painelLojista.style.display = "none";
-          
-          return;
-        }
+  painelLojista.style.display = "none";
+
+  areaLogin.style.display = "block";
+
+  const mensagemLogin =
+    document.getElementById("mensagemLogin");
+
+  if (mensagemLogin) {
+
+    mensagemLogin.textContent =
+      "Esta conta não está vinculada a um lojista.";
+
+  }
+
+  return;
+}
 
         const documento =
           resposta.docs[0];
