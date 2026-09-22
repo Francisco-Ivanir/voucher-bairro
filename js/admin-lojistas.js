@@ -176,6 +176,29 @@ async function carregarLojistas() {
       </p>
 
       <p>
+        UID:
+        ${dados.uid}
+      </p>
+
+      <p>
+        Criado em:
+        ${
+          dados.criadoEm
+            ? dados.criadoEm.toDate().toLocaleString()
+            : "---"
+        }
+      </p>
+
+      <p>
+        Último acesso:
+        ${
+          dados.ultimoAcesso
+            ? dados.ultimoAcesso.toDate().toLocaleString()
+            : "---"
+        }
+      </p>
+      
+      <p>
         Status:
         ${dados.ativo === true ? "Ativo" : "Inativo"}
       </p>
