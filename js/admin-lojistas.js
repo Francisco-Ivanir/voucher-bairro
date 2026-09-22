@@ -83,19 +83,35 @@ btnLoginAdmin.addEventListener(
     try {
 
       const resultado =
-        await signInWithEmailAndPassword(
-          authAdmin,
-          email,
-          senha
-        );
+  await signInWithEmailAndPassword(
+    authAdmin,
+    email,
+    senha
+  );
 
-      console.log(
-        "Administrador autenticado:",
-        resultado.user.email
-      );
 
-      mensagemLoginAdmin.textContent =
-        "✅ Login realizado com sucesso.";
+if (
+  resultado.user.email !==
+  "admin@teste.com"
+) {
+
+  mensagemLoginAdmin.textContent =
+    "❌ Esta conta não é autorizada como administrador.";
+
+  await authAdmin.signOut();
+
+  return;
+}
+
+
+console.log(
+  "Administrador autorizado:",
+  resultado.user.email
+);
+
+
+mensagemLoginAdmin.textContent =
+  "✅ Administrador autenticado com sucesso.";
 
     } catch (erro) {
 
