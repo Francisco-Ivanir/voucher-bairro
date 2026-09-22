@@ -102,6 +102,9 @@ async function carregarLojistas() {
 
       botao.addEventListener("click", async () => {
 
+        botao.disabled = true;
+botao.textContent = "Atualizando...";
+        
         const idDocumento =
           botao.dataset.id;
 
