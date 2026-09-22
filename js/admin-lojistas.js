@@ -43,6 +43,74 @@ const authCadastro =
 const listaLojistas =
   document.getElementById("listaLojistas");
 
+const authAdmin =
+  getAuth(app);
+
+
+const emailAdmin =
+  document.getElementById("emailAdmin");
+
+const senhaAdmin =
+  document.getElementById("senhaAdmin");
+
+const btnLoginAdmin =
+  document.getElementById("btnLoginAdmin");
+
+const mensagemLoginAdmin =
+  document.getElementById(
+    "mensagemLoginAdmin"
+  );
+
+
+btnLoginAdmin.addEventListener(
+  "click",
+  async () => {
+
+    const email =
+      emailAdmin.value.trim();
+
+    const senha =
+      senhaAdmin.value;
+
+    if (!email || !senha) {
+
+      mensagemLoginAdmin.textContent =
+        "❌ Informe o e-mail e a senha.";
+
+      return;
+    }
+
+    try {
+
+      const resultado =
+        await signInWithEmailAndPassword(
+          authAdmin,
+          email,
+          senha
+        );
+
+      console.log(
+        "Administrador autenticado:",
+        resultado.user.email
+      );
+
+      mensagemLoginAdmin.textContent =
+        "✅ Login realizado com sucesso.";
+
+    } catch (erro) {
+
+      console.error(
+        "Erro no login do administrador:",
+        erro
+      );
+
+      mensagemLoginAdmin.textContent =
+        "❌ E-mail ou senha inválidos.";
+
+    }
+
+  }
+);
 
 async function carregarLojistas() {
 
