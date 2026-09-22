@@ -58,7 +58,7 @@ async function carregarLojistas() {
     const item =
       document.createElement("div");
 
-   item.innerHTML = `
+    item.innerHTML = `
       <p>
         <strong>${dados.nome}</strong>
       </p>
@@ -90,13 +90,62 @@ async function carregarLojistas() {
 
       <hr>
     `;
-    
+
     listaLojistas.appendChild(item);
 
   });
 
-}
 
+  document
+    .querySelectorAll(".btnAlterarStatus")
+    .forEach((botao) => {
+
+      botao.addEventListener("click", async () => {
+
+        const idDocumento =
+          botao.dataset.id;
+
+        const ativoAtual =
+          botao.dataset.ativo === "true";
+
+        const novoStatus =
+          !ativoAtual;
+
+        try {
+
+          await updateDoc(
+            doc(
+              db,
+              "lojistas",
+              idDocumento
+            ),
+            {
+              ativo: novoStatus
+            }
+          );
+
+          console.log(
+            "Status do lojista atualizado:",
+            idDocumento,
+            novoStatus
+          );
+
+          carregarLojistas();
+
+        } catch (erro) {
+
+          console.error(
+            "Erro ao atualizar status do lojista:",
+            erro
+          );
+
+        }
+
+      });
+
+    });
+
+}
 
 carregarLojistas();
 
