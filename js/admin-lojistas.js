@@ -9,7 +9,8 @@ import {
   getDocs,
   addDoc,
   updateDoc,
-  doc
+  doc,
+  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 import {
@@ -442,7 +443,8 @@ await addDoc(
     email: email,
     uid: uid,
     lojistaId: lojistaId,
-    ativo: true
+    ativo: true,
+    criadoEm: serverTimestamp()
   }
 );
 
