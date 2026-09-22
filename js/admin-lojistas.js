@@ -100,54 +100,7 @@ async function carregarLojistas() {
 
 carregarLojistas();
 
-document
-  .querySelectorAll(".btnAlterarStatus")
-  .forEach((botao) => {
 
-    botao.addEventListener("click", async () => {
-
-      const idDocumento =
-        botao.dataset.id;
-
-      const ativoAtual =
-        botao.dataset.ativo === "true";
-
-      const novoStatus =
-        !ativoAtual;
-
-      try {
-
-        await updateDoc(
-          doc(
-            db,
-            "lojistas",
-            idDocumento
-          ),
-          {
-            ativo: novoStatus
-          }
-        );
-
-        console.log(
-          "Status do lojista atualizado:",
-          idDocumento,
-          novoStatus
-        );
-
-        carregarLojistas();
-
-      } catch (erro) {
-
-        console.error(
-          "Erro ao atualizar status do lojista:",
-          erro
-        );
-
-      }
-
-    });
-
-  });
 
 const btnNovoLojista =
   document.getElementById("btnNovoLojista");
