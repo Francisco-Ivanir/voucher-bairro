@@ -56,7 +56,7 @@ async function carregarLojistas() {
     const item =
       document.createElement("div");
 
-    item.innerHTML = `
+   item.innerHTML = `
       <p>
         <strong>${dados.nome}</strong>
       </p>
@@ -74,9 +74,21 @@ async function carregarLojistas() {
         ${dados.ativo === true ? "Ativo" : "Inativo"}
       </p>
 
+      <button
+        class="btnAlterarStatus"
+        data-id="${documento.id}"
+        data-ativo="${dados.ativo === true}"
+      >
+        ${
+          dados.ativo === true
+            ? "Desativar lojista"
+            : "Ativar lojista"
+        }
+      </button>
+
       <hr>
     `;
-
+    
     listaLojistas.appendChild(item);
 
   });
