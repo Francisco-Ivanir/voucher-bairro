@@ -61,6 +61,15 @@ const mensagemLoginAdmin =
     "mensagemLoginAdmin"
   );
 
+const areaLoginAdmin =
+  document.getElementById(
+    "areaLoginAdmin"
+  );
+
+const areaAdministracao =
+  document.getElementById(
+    "areaAdministracao"
+  );
 
 btnLoginAdmin.addEventListener(
   "click",
@@ -113,6 +122,14 @@ console.log(
 mensagemLoginAdmin.textContent =
   "✅ Administrador autenticado com sucesso.";
 
+      areaAdministracao.style.display =
+  "block";
+
+areaLoginAdmin.style.display =
+  "none";
+
+carregarLojistas();
+      
     } catch (erro) {
 
       console.error(
