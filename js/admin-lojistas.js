@@ -124,13 +124,21 @@ async function carregarLojistas() {
             }
           );
 
-          console.log(
-            "Status do lojista atualizado:",
-            idDocumento,
-            novoStatus
-          );
+         console.log(
+  "Status do lojista atualizado:",
+  idDocumento,
+  novoStatus
+);
 
-          carregarLojistas();
+
+alert(
+  novoStatus
+    ? "✅ Lojista ativado com sucesso."
+    : "⚠️ Lojista desativado com sucesso."
+);
+
+
+carregarLojistas();
 
         } catch (erro) {
 
