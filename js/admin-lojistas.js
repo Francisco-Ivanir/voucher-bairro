@@ -143,14 +143,25 @@ alert(
 
 carregarLojistas();
 
-        } catch (erro) {
+       } catch (erro) {
 
-          console.error(
-            "Erro ao atualizar status do lojista:",
-            erro
-          );
+  console.error(
+    "Erro ao atualizar status do lojista:",
+    erro
+  );
 
-        }
+  botao.disabled = false;
+
+  botao.textContent =
+    ativoAtual
+      ? "Desativar lojista"
+      : "Ativar lojista";
+
+  alert(
+    "❌ Não foi possível atualizar o status do lojista."
+  );
+
+}
 
       });
 
