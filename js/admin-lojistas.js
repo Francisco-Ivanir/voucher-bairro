@@ -27,6 +27,9 @@ import {
   getAuth
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
+import {
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
 const appCadastro =
   initializeApp(
