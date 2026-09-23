@@ -200,9 +200,13 @@ async function carregarLojistas() {
       </p>
       
       <p>
-        Status:
-        ${dados.ativo === true ? "Ativo" : "Inativo"}
-      </p>
+  Status:
+  ${
+    dados.ativo === true
+      ? "🟢 Ativo"
+      : "🔴 Inativo"
+  }
+</p>
 
       <button
         class="btnAlterarStatus"
