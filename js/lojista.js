@@ -828,6 +828,24 @@ resumoLojistaId.textContent =
     ? dadosLojistaAtual.lojistaId
     : "---";
 
+      resumoUltimoAcesso.textContent =
+  dadosLojistaAtual &&
+  dadosLojistaAtual.ultimoAcesso
+    ? dadosLojistaAtual.ultimoAcesso
+        .toDate()
+        .toLocaleString()
+    : "---";
+
+
+resumoStatusLoja.textContent =
+  dadosLojistaAtual
+    ? (
+        dadosLojistaAtual.ativo === true
+          ? "🟢 Ativa"
+          : "🔴 Inativa"
+      )
+    : "---";
+      
  console.log(
   "Lojista atual:",
   dadosLojistaAtual.lojistaId
