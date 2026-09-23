@@ -171,10 +171,15 @@ if (mensagemLogin) {
 if (identificacaoLojista) {
 
   identificacaoLojista.textContent =
-    "Loja: " +
-    dadosLojistaAtual.nome +
-    " | ID: " +
-    dadosLojistaAtual.lojistaId;
+  dadosLojistaAtual.nome +
+  " | " +
+  dadosLojistaAtual.lojistaId +
+  " · " +
+  (
+    dadosLojistaAtual.ativo === true
+      ? "🟢 Ativa"
+      : "🔴 Inativa"
+  );
 
 }
         
