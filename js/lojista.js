@@ -435,6 +435,12 @@ const resumoLoja =
 const resumoLojistaId =
   document.getElementById("resumoLojistaId");
 
+const resumoUltimoAcesso =
+  document.getElementById("resumoUltimoAcesso");
+
+const resumoStatusLoja =
+  document.getElementById("resumoStatusLoja");
+
 const botao = document.getElementById("btnConsultar");
 
 
