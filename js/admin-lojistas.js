@@ -448,7 +448,7 @@ await addDoc(
     uid: uid,
     lojistaId: lojistaId,
     ativo: true,
-    criadoEm: serverTimestamp()
+    criadoEm: serverTimestamp(),
     ultimoAcesso: null
   }
 );
