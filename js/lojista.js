@@ -441,6 +441,9 @@ const resumoUltimoAcesso =
 const resumoStatusLoja =
   document.getElementById("resumoStatusLoja");
 
+const nomeLojaPainel =
+  document.getElementById("nomeLojaPainel");
+
 const botao = document.getElementById("btnConsultar");
 
 
