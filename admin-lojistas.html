@@ -125,9 +125,56 @@
     </div>
 
 
-    <div id="listaLojistas">
-      Carregando lojistas...
-    </div>
+   <div id="areaCadastroVoucher" style="display: none;">
+
+  <hr>
+
+  <h2>Novo Voucher</h2>
+
+  <p>Loja:</p>
+
+  <select id="lojistaVoucher">
+    <option value="">
+      Selecione a loja
+    </option>
+  </select>
+
+  <p>Benefício:</p>
+
+  <input
+    type="text"
+    id="beneficioVoucher"
+    placeholder="Ex.: R$ 2,00 de desconto"
+  >
+
+  <p>Cliente:</p>
+
+  <input
+    type="text"
+    id="clienteVoucher"
+    placeholder="Nome do cliente"
+  >
+
+  <p>Data de validade:</p>
+
+  <input
+    type="date"
+    id="validadeVoucher"
+  >
+
+  <br><br>
+
+  <button id="btnCriarVoucher">
+    Criar Voucher
+  </button>
+
+  <div id="mensagemVoucher"></div>
+
+</div>
+
+<div id="listaLojistas">
+  Carregando lojistas...
+</div>
 
   </div>
 
