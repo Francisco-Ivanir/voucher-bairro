@@ -848,6 +848,11 @@ resumoStatusLoja.textContent =
           : "🔴 Inativa"
       )
     : "---";
+
+      nomeLojaPainel.textContent =
+  dadosLojistaAtual
+    ? "🏪 " + dadosLojistaAtual.nome
+    : "🏪 Carregando loja...";
       
  console.log(
   "Lojista atual:",
