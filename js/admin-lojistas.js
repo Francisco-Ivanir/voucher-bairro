@@ -311,6 +311,11 @@ const btnNovoLojista =
 const areaCadastroLojista =
   document.getElementById("areaCadastroLojista");
 
+const btnNovoVoucher =
+  document.getElementById("btnNovoVoucher");
+
+const areaCadastroVoucher =
+  document.getElementById("areaCadastroVoucher");
 
 btnNovoLojista.addEventListener("click", () => {
 
