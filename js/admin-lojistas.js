@@ -340,6 +340,21 @@ const areaCadastroVoucher =
 const lojistaVoucher =
   document.getElementById("lojistaVoucher");
 
+const beneficioVoucher =
+  document.getElementById("beneficioVoucher");
+
+const clienteVoucher =
+  document.getElementById("clienteVoucher");
+
+const validadeVoucher =
+  document.getElementById("validadeVoucher");
+
+const btnCriarVoucher =
+  document.getElementById("btnCriarVoucher");
+
+const mensagemVoucher =
+  document.getElementById("mensagemVoucher");
+
 btnNovoLojista.addEventListener("click", () => {
 
   areaCadastroLojista.style.display = "block";
