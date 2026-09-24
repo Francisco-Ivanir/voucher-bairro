@@ -355,6 +355,114 @@ const btnCriarVoucher =
 const mensagemVoucher =
   document.getElementById("mensagemVoucher");
 
+function gerarCodigoVoucher() {
+
+  const caracteres =
+    "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+  let codigo =
+    "VDB-";
+
+  for (let i = 0; i < 6; i++) {
+
+    const indice =
+      Math.floor(
+        Math.random() * caracteres.length
+      );
+
+    codigo +=
+      caracteres[indice];
+  }
+
+  return codigo;
+}
+
+btnCriarVoucher.addEventListener("click", async () => {
+
+  const lojistaId =
+    lojistaVoucher.value;
+
+  const beneficio =
+    beneficioVoucher.value.trim();
+
+  const cliente =
+    clienteVoucher.value.trim();
+
+  const dataValidade =
+    validadeVoucher.value;
+
+  if (
+    !lojistaId ||
+    !beneficio ||
+    !cliente ||
+    !dataValidade
+  ) {
+
+    mensagemVoucher.textContent =
+      "❌ Preencha todos os campos.";
+
+    return;
+  }
+
+  const opcaoSelecionada =
+    lojistaVoucher.options[
+      lojistaVoucher.selectedIndex
+    ];
+
+  const nomeLoja =
+    opcaoSelecionada.textContent
+      .replace(
+        " (" + lojistaId + ")",
+        ""
+      );
+
+  const codigo =
+    gerarCodigoVoucher();
+
+  try {
+
+    await addDoc(
+      collection(db, "vouchers"),
+      {
+        codigo: codigo,
+        loja: nomeLoja,
+        lojistaId: lojistaId,
+        cliente: cliente,
+        beneficio: beneficio,
+        dataCriacao: serverTimestamp(),
+        dataValidade: dataValidade,
+        status: "ativo",
+        usado: false
+      }
+    );
+
+    mensagemVoucher.textContent =
+      "✅ Voucher criado: " + codigo;
+
+    beneficioVoucher.value = "";
+    clienteVoucher.value = "";
+    validadeVoucher.value = "";
+    lojistaVoucher.value = "";
+
+    console.log(
+      "Voucher criado com sucesso:",
+      codigo
+    );
+
+  } catch (erro) {
+
+    console.error(
+      "Erro ao criar voucher:",
+      erro
+    );
+
+    mensagemVoucher.textContent =
+      "❌ Não foi possível criar o voucher.";
+  }
+
+});
+
+
 btnNovoLojista.addEventListener("click", () => {
 
   areaCadastroLojista.style.display = "block";
