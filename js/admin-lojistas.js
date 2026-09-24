@@ -155,6 +155,12 @@ async function carregarLojistas() {
 
   listaLojistas.innerHTML = "";
 
+  lojistaVoucher.innerHTML = `
+  <option value="">
+    Selecione a loja
+  </option>
+`;
+  
   resposta.forEach((documento) => {
 
     const dados =
