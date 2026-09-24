@@ -323,6 +323,15 @@ btnNovoLojista.addEventListener("click", () => {
 
 });
 
+btnNovoVoucher.addEventListener("click", () => {
+
+  areaCadastroVoucher.style.display =
+    areaCadastroVoucher.style.display === "none"
+      ? "block"
+      : "none";
+
+});
+
 const btnSalvarLojista =
   document.getElementById("btnSalvarLojista");
 
