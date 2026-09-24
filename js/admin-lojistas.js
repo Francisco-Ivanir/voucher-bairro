@@ -166,6 +166,20 @@ async function carregarLojistas() {
     const dados =
       documento.data();
 
+    if (dados.ativo === true) {
+
+  const opcao =
+    document.createElement("option");
+
+  opcao.value =
+    dados.lojistaId;
+
+  opcao.textContent =
+    dados.nome + " (" + dados.lojistaId + ")";
+
+  lojistaVoucher.appendChild(opcao);
+}
+    
     const item =
       document.createElement("div");
 
