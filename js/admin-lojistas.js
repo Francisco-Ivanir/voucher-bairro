@@ -317,6 +317,9 @@ const btnNovoVoucher =
 const areaCadastroVoucher =
   document.getElementById("areaCadastroVoucher");
 
+const lojistaVoucher =
+  document.getElementById("lojistaVoucher");
+
 btnNovoLojista.addEventListener("click", () => {
 
   areaCadastroLojista.style.display = "block";
