@@ -623,10 +623,16 @@ if (!filtroStatusConfigurado) {
         ${dadosLoja.cliente}
         </p>
 
-        <p>
-        <strong>Criado em:</strong>
-        ${dadosLoja.dataCriacao}
-        </p>
+       <p>
+<strong>Criado em:</strong>
+${
+  dadosLoja.dataCriacao
+    ? dadosLoja.dataCriacao
+        .toDate()
+        .toLocaleString()
+    : "---"
+}
+</p>
 
         <p>
         <strong>Benefício:</strong>
