@@ -623,14 +623,15 @@ if (!filtroStatusConfigurado) {
         ${dadosLoja.cliente}
         </p>
 
-       <p>
-<strong>Criado em:</strong>
-${
-  dadosLoja.dataCriacao
-    ? dadosLoja.dataCriacao
-        .toDate()
-        .toLocaleString()
-    : "---"
+      dadosLoja.dataCriacao
+  ? (
+      typeof dadosLoja.dataCriacao.toDate === "function"
+        ? dadosLoja.dataCriacao
+            .toDate()
+            .toLocaleString()
+        : dadosLoja.dataCriacao
+    )
+  : "---"
 }
 </p>
 
@@ -706,14 +707,15 @@ ${dadosLoja.lojistaId}
     ${dadosLoja.cliente}
     </p>
 
-<p>
-<strong>Criado em:</strong>
-${
-  dadosLoja.dataCriacao
-    ? dadosLoja.dataCriacao
-        .toDate()
-        .toLocaleString()
-    : "---"
+dadosLoja.dataCriacao
+  ? (
+      typeof dadosLoja.dataCriacao.toDate === "function"
+        ? dadosLoja.dataCriacao
+            .toDate()
+            .toLocaleString()
+        : dadosLoja.dataCriacao
+    )
+  : "---"
 }
 </p>
 
