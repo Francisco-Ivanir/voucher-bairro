@@ -618,28 +618,30 @@ if (!filtroStatusConfigurado) {
         ${dadosLoja.codigo}
         </p>
 
-        <p>
-        <strong>Cliente:</strong>
-        ${dadosLoja.cliente}
-        </p>
+       <p>
+<strong>Cliente:</strong>
+${dadosLoja.cliente}
+</p>
 
-      dadosLoja.dataCriacao
-  ? (
-      typeof dadosLoja.dataCriacao.toDate === "function"
-        ? dadosLoja.dataCriacao
-            .toDate()
-            .toLocaleString()
-        : dadosLoja.dataCriacao
-    )
-  : "---"
+<p>
+<strong>Criado em:</strong>
+${
+  dadosLoja.dataCriacao
+    ? (
+        typeof dadosLoja.dataCriacao.toDate === "function"
+          ? dadosLoja.dataCriacao
+              .toDate()
+              .toLocaleString()
+          : dadosLoja.dataCriacao
+      )
+    : "---"
 }
 </p>
 
-        <p>
-        <strong>Benefício:</strong>
-        ${dadosLoja.beneficio}
-        </p>
-
+<p>
+<strong>Benefício:</strong>
+${dadosLoja.beneficio}
+</p>
         <p>
         <strong>Válido até:</strong>
         ${dadosLoja.dataValidade}
