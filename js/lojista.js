@@ -708,7 +708,13 @@ ${dadosLoja.lojistaId}
 
 <p>
 <strong>Criado em:</strong>
-${dadosLoja.dataCriacao}
+${
+  dadosLoja.dataCriacao
+    ? dadosLoja.dataCriacao
+        .toDate()
+        .toLocaleString()
+    : "---"
+}
 </p>
 
     <p>
