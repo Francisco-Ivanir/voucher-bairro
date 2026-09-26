@@ -123,6 +123,20 @@ console.log(
   "UID do administrador:",
   resultado.user.uid
 );
+
+      await addDoc(
+  collection(db, "administradores"),
+  {
+    uid: resultado.user.uid,
+    email: resultado.user.email,
+    ativo: true
+  }
+);
+
+console.log(
+  "Administrador registrado no Firestore:",
+  resultado.user.uid
+);
       
 mensagemLoginAdmin.textContent =
   "✅ Administrador autenticado com sucesso.";
