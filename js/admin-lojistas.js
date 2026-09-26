@@ -126,19 +126,39 @@ console.log(
   resultado.user.uid
 );
 
-      await addDoc(
-  collection(db, "administradores"),
-  {
-    uid: resultado.user.uid,
-    email: resultado.user.email,
-    ativo: true
-  }
-);
+   const consultaAdministrador =
+  query(
+    collection(db, "administradores"),
+    where("uid", "==", resultado.user.uid)
+  );
 
-console.log(
-  "Administrador registrado no Firestore:",
-  resultado.user.uid
-);
+const respostaAdministrador =
+  await getDocs(consultaAdministrador);
+
+if (respostaAdministrador.empty) {
+
+  await addDoc(
+    collection(db, "administradores"),
+    {
+      uid: resultado.user.uid,
+      email: resultado.user.email,
+      ativo: true
+    }
+  );
+
+  console.log(
+    "Administrador registrado no Firestore:",
+    resultado.user.uid
+  );
+
+} else {
+
+  console.log(
+    "Administrador já registrado no Firestore:",
+    resultado.user.uid
+  );
+
+}
       
 mensagemLoginAdmin.textContent =
   "✅ Administrador autenticado com sucesso.";
