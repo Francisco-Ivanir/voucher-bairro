@@ -119,7 +119,11 @@ console.log(
   resultado.user.email
 );
 
-
+console.log(
+  "UID do administrador:",
+  resultado.user.uid
+);
+      
 mensagemLoginAdmin.textContent =
   "✅ Administrador autenticado com sucesso.";
 
