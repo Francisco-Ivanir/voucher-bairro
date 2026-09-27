@@ -448,19 +448,22 @@ btnCriarVoucher.addEventListener("click", async () => {
   }
 
   const opcaoSelecionada =
-    lojistaVoucher.options[
-      lojistaVoucher.selectedIndex
-    ];
+  lojistaVoucher.options[
+    lojistaVoucher.selectedIndex
+  ];
 
-  const nomeLoja =
-    opcaoSelecionada.textContent
-      .replace(
-        " (" + lojistaId + ")",
-        ""
-      );
+const nomeLoja =
+  opcaoSelecionada.textContent
+    .replace(
+      " (" + lojistaId + ")",
+      ""
+    );
 
-  const codigo =
-    gerarCodigoVoucher();
+const lojistaUid =
+  opcaoSelecionada.dataset.uid;
+
+const codigo =
+  gerarCodigoVoucher();
 
   try {
 
