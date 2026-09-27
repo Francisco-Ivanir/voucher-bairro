@@ -473,6 +473,7 @@ const codigo =
         codigo: codigo,
         loja: nomeLoja,
         lojistaId: lojistaId,
+         lojistaUid: lojistaUid,
         cliente: cliente,
         beneficio: beneficio,
         dataCriacao: serverTimestamp(),
