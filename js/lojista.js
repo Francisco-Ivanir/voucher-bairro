@@ -537,11 +537,6 @@ const consultaLoja = query(
   where("lojistaId", "==", lojistaIdConsulta) 
 );
 
-    const consultaLoja = query(
-  collection(db, "vouchers"),
-  where("lojistaId", "==", lojistaIdConsulta)
-);
-
 const consultaLojaUid = query(
   collection(db, "vouchers"),
   where("lojistaUid", "==", dadosLojistaAtual.uid)
