@@ -531,24 +531,18 @@ if (
 
 }
 
-
-const consultaLoja = query( 
-  collection(db, "vouchers"), 
-  where("lojistaId", "==", lojistaIdConsulta) 
-);
-
 const consultaLojaUid = query(
   collection(db, "vouchers"),
   where("lojistaUid", "==", dadosLojistaAtual.uid)
 );
 
-    console.log(
+console.log(
   "UID do lojista autenticado:",
   dadosLojistaAtual.uid
 );
-    
+
 const respostaLoja =
-  await getDocs(consultaLoja);
+  await getDocs(consultaLojaUid);
 
     console.log(
   "Quantidade de vouchers da loja:",
