@@ -206,13 +206,16 @@ async function carregarLojistas() {
     const dados =
       documento.data();
 
-    if (dados.ativo === true) {
+   if (dados.ativo === true) {
 
   const opcao =
     document.createElement("option");
 
   opcao.value =
     dados.lojistaId;
+
+  opcao.dataset.uid =
+    dados.uid;
 
   opcao.textContent =
     dados.nome + " (" + dados.lojistaId + ")";
