@@ -420,6 +420,38 @@ function gerarCodigoVoucher() {
   return codigo;
 }
 
+async function verificarVouchersAntigos() {
+
+  const consulta =
+    query(
+      collection(db, "vouchers"),
+      where("lojistaId", "==", "LANC001")
+    );
+
+  const resposta =
+    await getDocs(consulta);
+
+  console.log(
+    "Vouchers encontrados para LANC001:",
+    resposta.size
+  );
+
+  resposta.forEach((documento) => {
+
+    const dados =
+      documento.data();
+
+    console.log(
+      "Voucher:",
+      dados.codigo,
+      "| lojistaUid:",
+      dados.lojistaUid || "NÃO POSSUI"
+    );
+
+  });
+
+}
+
 btnCriarVoucher.addEventListener("click", async () => {
 
   const lojistaId =
