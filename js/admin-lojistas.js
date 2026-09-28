@@ -452,7 +452,7 @@ async function verificarVouchersAntigos() {
 
   if (
   dados.lojistaUid !==
-  "HN6kcd60yNTcf5aJ0HOhWZZx2"
+ "HN6kcd60yNTcf5aF5aJ0HOhWZZx2"
 ) {
 
   await updateDoc(
@@ -463,7 +463,7 @@ async function verificarVouchersAntigos() {
     ),
     {
       lojistaUid:
-        "HN6kcd60yNTcf5aJ0HOhWZZx2"
+       "HN6kcd60yNTcf5aF5aJ0HOhWZZx2"
     }
   );
 
