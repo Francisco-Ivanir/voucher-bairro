@@ -170,6 +170,8 @@ areaLoginAdmin.style.display =
   "none";
 
 carregarLojistas();
+
+      verificarVouchersAntigos();
       
     } catch (erro) {
 
