@@ -450,26 +450,29 @@ async function verificarVouchersAntigos() {
     dados.lojistaUid || "NÃO POSSUI"
   );
 
-  if (!dados.lojistaUid) {
+  if (
+  dados.lojistaUid !==
+  "HN6kcd60yNTcf5aJ0HOhWZZx2"
+) {
 
-    await updateDoc(
-      doc(
-        db,
-        "vouchers",
-        documento.id
-      ),
-      {
-        lojistaUid:
-          "HN6kcd60yNTcf5aJ0HOhWZZx2"
-      }
-    );
+  await updateDoc(
+    doc(
+      db,
+      "vouchers",
+      documento.id
+    ),
+    {
+      lojistaUid:
+        "HN6kcd60yNTcf5aJ0HOhWZZx2"
+    }
+  );
 
-    console.log(
-      "UID adicionado ao voucher:",
-      dados.codigo
-    );
+  console.log(
+    "UID corrigido no voucher:",
+    dados.codigo
+  );
 
-  }
+}
 
 });
 
