@@ -438,19 +438,40 @@ async function verificarVouchersAntigos() {
     resposta.size
   );
 
-  resposta.forEach((documento) => {
+ resposta.forEach(async (documento) => {
 
-    const dados =
-      documento.data();
+  const dados =
+    documento.data();
 
-    console.log(
-      "Voucher:",
-      dados.codigo,
-      "| lojistaUid:",
-      dados.lojistaUid || "NÃO POSSUI"
+  console.log(
+    "Voucher:",
+    dados.codigo,
+    "| lojistaUid:",
+    dados.lojistaUid || "NÃO POSSUI"
+  );
+
+  if (!dados.lojistaUid) {
+
+    await updateDoc(
+      doc(
+        db,
+        "vouchers",
+        documento.id
+      ),
+      {
+        lojistaUid:
+          "HN6kcd60yNTcf5aJ0HOhWZZx2"
+      }
     );
 
-  });
+    console.log(
+      "UID adicionado ao voucher:",
+      dados.codigo
+    );
+
+  }
+
+});
 
 }
 
