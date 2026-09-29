@@ -546,6 +546,11 @@ let vouchersSemLojista = [];
     semLojista
   );
 
+  console.log(
+  "Códigos sem lojista identificável:",
+  vouchersSemLojista
+);
+  
 }
 
 btnCriarVoucher.addEventListener("click", async () => {
