@@ -424,57 +424,85 @@ function gerarCodigoVoucher() {
 
 async function verificarVouchersAntigos() {
 
-  const consulta =
-    query(
-      collection(db, "vouchers"),
-      where("lojistaId", "==", "LANC001")
+  console.log(
+    "Verificando vouchers e vínculos dos lojistas..."
+  );
+
+  const consultaLojistas =
+    await getDocs(
+      collection(db, "lojistas")
     );
 
-  const resposta =
-    await getDocs(consulta);
+  const mapaLojistas = {};
+
+  consultaLojistas.forEach((documento) => {
+
+    const dadosLojista =
+      documento.data();
+
+    mapaLojistas[
+      dadosLojista.lojistaId
+    ] = dadosLojista.uid;
+
+  });
+
+  const consultaVouchers =
+    await getDocs(
+      collection(db, "vouchers")
+    );
 
   console.log(
-    "Vouchers encontrados para LANC001:",
-    resposta.size
+    "Total de vouchers encontrados:",
+    consultaVouchers.size
   );
 
- resposta.forEach(async (documento) => {
+  consultaVouchers.forEach(async (documento) => {
 
-  const dados =
-    documento.data();
+    const dadosVoucher =
+      documento.data();
 
-  console.log(
-    "Voucher:",
-    dados.codigo,
-    "| lojistaUid:",
-    dados.lojistaUid || "NÃO POSSUI"
-  );
+    const lojistaId =
+      dadosVoucher.lojistaId;
 
-  if (
-  dados.lojistaUid !==
- "HN6kcd60yNTcf5aF5aJ0HOhWZZx2"
-) {
+    const uidCorreto =
+      mapaLojistas[lojistaId];
 
-  await updateDoc(
-    doc(
-      db,
-      "vouchers",
-      documento.id
-    ),
-    {
-      lojistaUid:
-       "HN6kcd60yNTcf5aF5aJ0HOhWZZx2"
+    console.log(
+      "Voucher:",
+      dadosVoucher.codigo,
+      "| lojistaId:",
+      lojistaId,
+      "| lojistaUid atual:",
+      dadosVoucher.lojistaUid || "NÃO POSSUI",
+      "| UID correto:",
+      uidCorreto || "LOJISTA NÃO ENCONTRADO"
+    );
+
+    if (
+      uidCorreto &&
+      dadosVoucher.lojistaUid !== uidCorreto
+    ) {
+
+      await updateDoc(
+        doc(
+          db,
+          "vouchers",
+          documento.id
+        ),
+        {
+          lojistaUid:
+            uidCorreto
+        }
+      );
+
+      console.log(
+        "UID corrigido no voucher:",
+        dadosVoucher.codigo
+      );
+
     }
-  );
 
-  console.log(
-    "UID corrigido no voucher:",
-    dados.codigo
-  );
-
-}
-
-});
+  });
 
 }
 
