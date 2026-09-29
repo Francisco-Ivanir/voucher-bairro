@@ -485,12 +485,16 @@ let vouchersSemLojista = [];
       uidCorreto || "LOJISTA NÃO ENCONTRADO"
     );
 
-    if (!uidCorreto) {
+   if (!uidCorreto) {
 
-      semLojista++;
+  semLojista++;
 
-      continue;
-    }
+  vouchersSemLojista.push(
+    dadosVoucher.codigo
+  );
+
+  continue;
+}
 
     if (
       dadosVoucher.lojistaUid ===
