@@ -457,8 +457,9 @@ async function verificarVouchersAntigos() {
   );
 
   let corrigidos = 0;
-  let jaCorretos = 0;
-  let semLojista = 0;
+let jaCorretos = 0;
+let semLojista = 0;
+let vouchersSemLojista = [];
 
   for (
     const documento of consultaVouchers.docs
