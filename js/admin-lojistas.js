@@ -456,7 +456,13 @@ async function verificarVouchersAntigos() {
     consultaVouchers.size
   );
 
-  consultaVouchers.forEach(async (documento) => {
+  let corrigidos = 0;
+  let jaCorretos = 0;
+  let semLojista = 0;
+
+  for (
+    const documento of consultaVouchers.docs
+  ) {
 
     const dadosVoucher =
       documento.data();
@@ -478,31 +484,62 @@ async function verificarVouchersAntigos() {
       uidCorreto || "LOJISTA NÃO ENCONTRADO"
     );
 
-    if (
-      uidCorreto &&
-      dadosVoucher.lojistaUid !== uidCorreto
-    ) {
+    if (!uidCorreto) {
 
-      await updateDoc(
-        doc(
-          db,
-          "vouchers",
-          documento.id
-        ),
-        {
-          lojistaUid:
-            uidCorreto
-        }
-      );
+      semLojista++;
 
-      console.log(
-        "UID corrigido no voucher:",
-        dadosVoucher.codigo
-      );
-
+      continue;
     }
 
-  });
+    if (
+      dadosVoucher.lojistaUid ===
+      uidCorreto
+    ) {
+
+      jaCorretos++;
+
+      continue;
+    }
+
+    await updateDoc(
+      doc(
+        db,
+        "vouchers",
+        documento.id
+      ),
+      {
+        lojistaUid:
+          uidCorreto
+      }
+    );
+
+    corrigidos++;
+
+    console.log(
+      "UID corrigido no voucher:",
+      dadosVoucher.codigo
+    );
+
+  }
+
+  console.log(
+    "Resumo da verificação:"
+  );
+
+  console.log(
+    "Vouchers já corretos:",
+    jaCorretos
+  );
+
+  console.log(
+    "Vouchers corrigidos:",
+    corrigidos
+  );
+
+  console.log(
+    "Vouchers sem lojista identificável:",
+    semLojista
+  );
 
 }
 
