@@ -493,6 +493,13 @@ let vouchersSemLojista = [];
     dadosVoucher.codigo
   );
 
+  console.warn(
+    "Voucher não alterado: lojista não encontrado.",
+    dadosVoucher.codigo,
+    "| lojistaId:",
+    lojistaId || "NÃO POSSUI"
+  );
+
   continue;
 }
 
