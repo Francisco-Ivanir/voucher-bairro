@@ -612,7 +612,14 @@ const lojistaUid =
 const codigo =
   gerarCodigoVoucher();
 
-  try {
+ try {
+
+  const codigosCriados = [];
+
+  for (let i = 0; i < quantidade; i++) {
+
+    const codigo =
+      gerarCodigoVoucher();
 
     await addDoc(
       collection(db, "vouchers"),
@@ -620,7 +627,7 @@ const codigo =
         codigo: codigo,
         loja: nomeLoja,
         lojistaId: lojistaId,
-         lojistaUid: lojistaUid,
+        lojistaUid: lojistaUid,
         cliente: cliente,
         beneficio: beneficio,
         dataCriacao: serverTimestamp(),
@@ -630,18 +637,28 @@ const codigo =
       }
     );
 
-    mensagemVoucher.textContent =
-      "✅ Voucher criado: " + codigo;
+    codigosCriados.push(codigo);
 
-    beneficioVoucher.value = "";
-    clienteVoucher.value = "";
-    validadeVoucher.value = "";
-    lojistaVoucher.value = "";
+  }
 
-    console.log(
-      "Voucher criado com sucesso:",
-      codigo
-    );
+  mensagemVoucher.textContent =
+    "✅ " +
+    quantidade +
+    " voucher(s) criado(s) com sucesso.";
+
+  beneficioVoucher.value = "";
+  clienteVoucher.value = "";
+  validadeVoucher.value = "";
+  lojistaVoucher.value = "";
+  document.getElementById(
+    "quantidadeVoucher"
+  ).value = "1";
+
+  console.log(
+    "Vouchers criados com sucesso:",
+    codigosCriados
+  );
+
 
   } catch (erro) {
 
