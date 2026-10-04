@@ -581,18 +581,18 @@ btnCriarVoucher.addEventListener("click", async () => {
     ).value
   );
   
-  if (
-    !lojistaId ||
-    !beneficio ||
-    !cliente ||
-    !dataValidade
-  ) {
-
-    mensagemVoucher.textContent =
-      "❌ Preencha todos os campos.";
-
-    return;
-  }
+ if (
+  !lojistaId ||
+  !beneficio ||
+  !dataValidade ||
+  !Number.isInteger(quantidade) ||
+  quantidade < 1 ||
+  (quantidade === 1 && !cliente)
+) {
+  mensagemVoucher.textContent =
+    "❌ Preencha os campos obrigatórios corretamente.";
+  return;
+}
 
   const opcaoSelecionada =
   lojistaVoucher.options[
