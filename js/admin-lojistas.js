@@ -574,6 +574,13 @@ btnCriarVoucher.addEventListener("click", async () => {
   const dataValidade =
     validadeVoucher.value;
 
+  const quantidade =
+  Number(
+    document.getElementById(
+      "quantidadeVoucher"
+    ).value
+  );
+  
   if (
     !lojistaId ||
     !beneficio ||
