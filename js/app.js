@@ -16,6 +16,18 @@ const db = getFirestore(app);
 const botao =
   document.getElementById("btnConsultar");
 
+const codigoPeloLink =
+  new URLSearchParams(
+    window.location.search
+  ).get("codigo");
+
+if (codigoPeloLink) {
+
+  document.getElementById(
+    "codigoVoucher"
+  ).value = codigoPeloLink;
+
+} 
 
 botao.addEventListener("click", async () => {
 
