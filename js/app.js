@@ -312,3 +312,10 @@ if (agora > dataValidadeAtual) {
   });
 
 });
+
+
+if (codigoPeloLink) {
+
+  botao.click();
+
+}
