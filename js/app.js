@@ -306,6 +306,12 @@ if (agora > dataValidadeAtual) {
 
         }
 
+        if (codigoPeloLink) {
+
+  botao.click();
+
+}
+        
       }
     );
 
@@ -314,8 +320,4 @@ if (agora > dataValidadeAtual) {
 });
 
 
-if (codigoPeloLink) {
 
-  botao.click();
-
-}
