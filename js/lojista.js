@@ -617,10 +617,16 @@ if (!filtroStatusConfigurado) {
         ${dadosLoja.lojistaId}
         </p>
 
-        <p>
-        <strong>Código:</strong>
-        ${dadosLoja.codigo}
-        </p>
+       <p>
+<strong>Código:</strong>
+${dadosLoja.codigo}
+</p>
+
+<button
+  onclick="copiarLinkVoucher('${dadosLoja.codigo}')"
+>
+  🔗 Copiar link
+</button>
 
        <p>
 <strong>Cliente:</strong>
