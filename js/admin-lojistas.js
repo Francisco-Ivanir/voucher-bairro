@@ -659,7 +659,61 @@ const codigo =
     codigosCriados
   );
 
+const areaLinks =
+  document.getElementById(
+    "linksVouchers"
+  );
 
+areaLinks.innerHTML =
+  "<h3>Links dos vouchers criados:</h3>";
+
+codigosCriados.forEach((codigo) => {
+
+  const link =
+    "https://francisco-ivanir.github.io/voucher-bairro/?codigo="
+    + codigo;
+
+  const bloco =
+    document.createElement("div");
+
+  bloco.innerHTML = `
+    <p>
+      <strong>Código:</strong>
+      ${codigo}
+    </p>
+
+    <p>
+      ${link}
+    </p>
+
+    <button>
+      📋 Copiar link
+    </button>
+
+    <hr>
+  `;
+
+  const botao =
+    bloco.querySelector("button");
+
+  botao.addEventListener(
+    "click",
+    async () => {
+
+      await navigator.clipboard.writeText(
+        link
+      );
+
+      botao.textContent =
+        "✅ Copiado";
+
+    }
+  );
+
+  areaLinks.appendChild(bloco);
+
+});
+   
   } catch (erro) {
 
     console.error(
