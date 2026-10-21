@@ -142,7 +142,7 @@ const dataCriacaoFormatada =
 
         <p>
         Data de criação:
-        ${dados.dataCriacao}
+      ${dataCriacaoFormatada}
         </p>
 
         <p>
