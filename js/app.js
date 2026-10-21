@@ -116,7 +116,12 @@ botao.addEventListener("click", async () => {
     const vencido =
       hoje > validade;
 
-
+const dataCriacaoFormatada =
+  dados.dataCriacao &&
+  typeof dados.dataCriacao.toDate === "function"
+    ? dados.dataCriacao.toDate().toLocaleString("pt-BR")
+    : "Data não disponível";
+    
     // VOUCHER VENCIDO
 
     if (vencido) {
