@@ -116,11 +116,29 @@ botao.addEventListener("click", async () => {
     const vencido =
       hoje > validade;
 
-const dataCriacaoFormatada =
-  dados.dataCriacao &&
-  typeof dados.dataCriacao.toDate === "function"
-    ? dados.dataCriacao.toDate().toLocaleString("pt-BR")
-    : "Data não disponível";
+const dataCriacao = dados.dataCriacao;
+
+let dataCriacaoFormatada = "Data não disponível";
+
+if (
+  dataCriacao &&
+  typeof dataCriacao.toDate === "function"
+) {
+
+  dataCriacaoFormatada =
+    dataCriacao.toDate().toLocaleString("pt-BR");
+
+} else if (
+  dataCriacao &&
+  typeof dataCriacao.seconds === "number"
+) {
+
+  dataCriacaoFormatada =
+    new Date(
+      dataCriacao.seconds * 1000
+    ).toLocaleString("pt-BR");
+
+}
     
     // VOUCHER VENCIDO
 
