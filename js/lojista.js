@@ -589,9 +589,6 @@ if (!filtroStatusConfigurado) {
     const dadosLoja =
       documentoLoja.data();
 
-    const dadosLoja =
-  documentoLoja.data();
-
 console.log(
   "Data original do voucher:",
   dadosLoja.dataCriacao
