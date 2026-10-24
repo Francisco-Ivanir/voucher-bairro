@@ -711,6 +711,16 @@ respostaLoja.forEach((documentoLoja) => {
 ) {
   return;
 }
+
+  const criadoEmFormatado =
+  dadosLoja.dataCriacao &&
+  typeof dadosLoja.dataCriacao.toDate === "function"
+    ? dadosLoja.dataCriacao
+        .toDate()
+        .toLocaleString("pt-BR")
+    : typeof dadosLoja.dataCriacao === "string"
+      ? dadosLoja.dataCriacao
+      : "---";
   
   listaVouchers.innerHTML += `
 
@@ -740,19 +750,7 @@ ${dadosLoja.cliente}
 
 <p>
 <strong>Criado em:</strong>
-${
-  dadosLoja.dataCriacao &&
-  typeof dadosLoja.dataCriacao.toDate === "function"
-    ? dadosLoja.dataCriacao
-        .toDate()
-        .toLocaleString("pt-BR")
-    : dadosLoja.dataCriacao &&
-      typeof dadosLoja.dataCriacao.seconds === "number"
-      ? new Date(
-          dadosLoja.dataCriacao.seconds * 1000
-        ).toLocaleString("pt-BR")
-      : "---"
-}
+${criadoEmFormatado}
 </p>
 
 <p>
