@@ -630,15 +630,17 @@ ${dadosLoja.cliente}
 <p>
 <strong>Criado em:</strong>
 ${
-  dadosLoja.dataCriacao
-    ? (
-        typeof dadosLoja.dataCriacao.toDate === "function"
-          ? dadosLoja.dataCriacao
-              .toDate()
-              .toLocaleString()
-          : dadosLoja.dataCriacao
-      )
-    : "---"
+  dadosLoja.dataCriacao &&
+  typeof dadosLoja.dataCriacao.toDate === "function"
+    ? dadosLoja.dataCriacao
+        .toDate()
+        .toLocaleString("pt-BR")
+    : dadosLoja.dataCriacao &&
+      typeof dadosLoja.dataCriacao.seconds === "number"
+      ? new Date(
+          dadosLoja.dataCriacao.seconds * 1000
+        ).toLocaleString("pt-BR")
+      : "---"
 }
 </p>
 
@@ -717,15 +719,17 @@ ${dadosLoja.cliente}
 <p>
 <strong>Criado em:</strong>
 ${
-  dadosLoja.dataCriacao
-    ? (
-        typeof dadosLoja.dataCriacao.toDate === "function"
-          ? dadosLoja.dataCriacao
-              .toDate()
-              .toLocaleString()
-          : dadosLoja.dataCriacao
-      )
-    : "---"
+  dadosLoja.dataCriacao &&
+  typeof dadosLoja.dataCriacao.toDate === "function"
+    ? dadosLoja.dataCriacao
+        .toDate()
+        .toLocaleString("pt-BR")
+    : dadosLoja.dataCriacao &&
+      typeof dadosLoja.dataCriacao.seconds === "number"
+      ? new Date(
+          dadosLoja.dataCriacao.seconds * 1000
+        ).toLocaleString("pt-BR")
+      : "---"
 }
 </p>
 
