@@ -118,6 +118,9 @@ botao.addEventListener("click", async () => {
 
 const dataCriacao = dados.dataCriacao;
 
+    console.log("Valor original da data:", dataCriacao);
+console.log("Tipo da data:", typeof dataCriacao);
+    
 let dataCriacaoFormatada = "Data não disponível";
 
 if (
