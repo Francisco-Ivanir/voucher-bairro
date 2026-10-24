@@ -589,6 +589,31 @@ if (!filtroStatusConfigurado) {
     const dadosLoja =
       documentoLoja.data();
 
+    const dadosLoja =
+  documentoLoja.data();
+
+console.log(
+  "Data original do voucher:",
+  dadosLoja.dataCriacao
+);
+
+console.log(
+  "Tipo da data:",
+  typeof dadosLoja.dataCriacao
+);
+
+console.log(
+  "Método toDate:",
+  typeof dadosLoja.dataCriacao?.toDate
+);
+
+console.log(
+  "Data convertida:",
+  typeof dadosLoja.dataCriacao?.toDate === "function"
+    ? dadosLoja.dataCriacao.toDate().toLocaleString("pt-BR")
+    : "toDate indisponível"
+);
+    
     const statusVoucher =
   obterStatusVoucher(dadosLoja);
 
