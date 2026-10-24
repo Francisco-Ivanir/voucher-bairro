@@ -120,6 +120,18 @@ const dataCriacao = dados.dataCriacao;
 
     console.log("Valor original da data:", dataCriacao);
 console.log("Tipo da data:", typeof dataCriacao);
+
+    console.log(
+  "Tem método toDate:",
+  typeof dataCriacao.toDate
+);
+
+console.log(
+  "Data convertida:",
+  typeof dataCriacao.toDate === "function"
+    ? dataCriacao.toDate().toLocaleString("pt-BR")
+    : "Método toDate indisponível"
+);
     
 let dataCriacaoFormatada = "Data não disponível";
 
