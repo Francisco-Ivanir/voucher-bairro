@@ -1047,9 +1047,21 @@ ${dados.beneficio}
 Código: ${dados.codigo}
 </p>
 
+
 <p>
-Data de criação: ${dados.dataCriacao}
+Data de criação: ${
+  dados.dataCriacao &&
+  typeof dados.dataCriacao.toDate === "function"
+    ? dados.dataCriacao.toDate().toLocaleString("pt-BR")
+    : dados.dataCriacao &&
+      typeof dados.dataCriacao.seconds === "number"
+      ? new Date(
+          dados.dataCriacao.seconds * 1000
+        ).toLocaleString("pt-BR")
+      : dados.dataCriacao || "---"
+}
 </p>
+
 
 <p>
 Válido até: ${dados.dataValidade}
