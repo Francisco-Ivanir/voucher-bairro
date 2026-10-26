@@ -777,28 +777,6 @@ ${
   </div>
 
 `;
-
-  console.log(
-  "Data original na lista:",
-  dadosLoja.dataCriacao
-);
-
-console.log(
-  "Tipo da data na lista:",
-  typeof dadosLoja.dataCriacao
-);
-
-console.log(
-  "Método toDate na lista:",
-  typeof dadosLoja.dataCriacao?.toDate
-);
-
-console.log(
-  "Conversão na lista:",
-  typeof dadosLoja.dataCriacao?.toDate === "function"
-    ? dadosLoja.dataCriacao.toDate().toLocaleString("pt-BR")
-    : "toDate indisponível"
-);
   
   console.log(
   "Voucher da loja:",
